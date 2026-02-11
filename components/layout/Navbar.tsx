@@ -71,7 +71,7 @@ export const Navbar = () => {
 
     return (
         <nav
-            className="fixed top-0 left-0 right-0 z-50 border-b border-[#0a1628]/12 bg-[#f7f7f6]"
+            className="header-font fixed top-0 left-0 right-0 z-50 border-b border-[#0a1628]/12 bg-[#FFFFFF]"
             onMouseEnter={() => setIsMenuOpen(true)}
             onMouseLeave={() => setIsMenuOpen(false)}
         >
@@ -95,7 +95,7 @@ export const Navbar = () => {
                                 priority
                             />
                         </div>
-                        <span className="text-[22px] font-semibold leading-none tracking-[-0.01em] text-[#0a1628]">
+                        <span className="text-[22px] font-normal leading-none tracking-[-0.01em] text-[#0a1628]">
                             Columbus Earth
                         </span>
                     </Link>
@@ -105,26 +105,26 @@ export const Navbar = () => {
                         <div className="hidden items-center gap-10 md:flex">
                             <Link
                                 href="#"
-                                className="text-[16px] font-semibold text-[#0a1628] transition-colors hover:text-gray-600"
+                                className="text-[16px] font-normal text-[#0a1628] transition-colors hover:text-gray-600"
                             >
                                 Product
                             </Link>
                             <Link
                                 href="#"
-                                className="text-[16px] font-semibold text-[#0a1628] transition-colors hover:text-gray-600"
+                                className="text-[16px] font-normal text-[#0a1628] transition-colors hover:text-gray-600"
                             >
                                 Use Cases
                             </Link>
                             <Link
                                 href="/technology"
-                                className="text-[16px] font-semibold text-[#0a1628] transition-colors hover:text-gray-600"
+                                className="text-[16px] font-normal text-[#0a1628] transition-colors hover:text-gray-600"
                             >
                                 Technology
                             </Link>
                         </div>
 
                         <div className="flex items-center gap-2.5">
-                            <button className="h-[44px] min-w-[188px] border border-[#0a1628]/85 bg-white px-8 text-[15px] font-semibold text-[#0a1628] transition-colors hover:bg-gray-50">
+                            <button className="h-[44px] min-w-[188px] border border-[#0a1628]/85 bg-white px-8 text-[15px] font-normal text-[#0a1628] transition-colors hover:bg-gray-50">
                                 Start Now
                             </button>
                             <button className="flex h-[44px] w-[44px] items-center justify-center border border-[#0a1628]/85 transition-colors hover:bg-gray-50">

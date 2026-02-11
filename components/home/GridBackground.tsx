@@ -5,7 +5,7 @@ import React from "react";
 export const GridBackground = () => {
     return (
         <div
-            className="fixed inset-0 -z-10 h-full w-full bg-[#f7f7f6]"
+            className="fixed inset-0 -z-10 h-full w-full bg-[#FFFFFF]"
             style={{
                 backgroundImage: `
              linear-gradient(to right, rgba(252, 171, 171, 0.34) 1px, transparent 1px),

@@ -31,13 +31,13 @@ export const shipporiMincho = localFont({
   src: [
     {
       path: "./fonts/ShipporiMincho-400-latin.woff2",
-      weight: "400",
-      style: "normal",
+      weight: "500",
+      style: "medium",
     },
     {
       path: "./fonts/ShipporiMincho-500-latin.woff2",
       weight: "500",
-      style: "normal",
+      style: "medium",
     },
   ],
   display: "swap",
