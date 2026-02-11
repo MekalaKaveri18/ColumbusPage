@@ -5,7 +5,6 @@ import { DataFusion } from "@/components/home/DataFusion";
 import { WhyColumbus } from "@/components/home/WhyColumbus";
 import { Products } from "@/components/home/Products";
 import { Footer } from "@/components/layout/Footer";
-import { ChatBar } from "@/components/chat/ChatBar";
 import { FeatureHighlight } from "@/components/home/FeatureHighlight"; // New Import
 
 
@@ -37,7 +36,6 @@ export default function Home() {
         </div>
       </div>
       <Footer />
-      <ChatBar />
     </main>
   );
 }

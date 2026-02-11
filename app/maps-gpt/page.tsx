@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ChatBar } from "@/components/chat/ChatBar";
 import { MapBackground } from "@/components/map/MapBackground";
 import { Button } from "@/components/ui/Button";
 
@@ -111,7 +110,6 @@ export default function MapsGPTPage() {
             </div>
 
             <Footer />
-            <ChatBar />
         </main>
     );
 }

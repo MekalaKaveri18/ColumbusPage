@@ -54,7 +54,7 @@ export const SIDEBAR_HIDDEN_ON = new Set<TechnologySectionId>([
 ]);
 
 export const LLM_TOKEN_LINES = [
-  "a large language model is trained on",
+  "A large language model is trained on",
   "huge sets of text data for tokenization",
   "280, 1170, 296, 4088, 30773, 4012, 5079",
   "2534, 3883, 263, 29072, 268, 64696",

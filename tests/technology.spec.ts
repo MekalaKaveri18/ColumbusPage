@@ -44,12 +44,12 @@ test.describe("Technology page", () => {
     expect(isOrdered).toBeTruthy();
   });
 
-  test("sidebar keeps index active and updates active marker on scroll", async ({ page }) => {
+  test("sidebar keeps index unhighlighted and updates active marker on scroll", async ({ page }) => {
     await page.goto("/technology");
 
     const sidebar = page.getByLabel("Technology section index");
     const indexLink = sidebar.getByRole("link", { name: "Index" });
-    await expect(indexLink).toHaveAttribute("aria-current", "page");
+    await expect(indexLink).not.toHaveAttribute("aria-current", "page");
 
     await page.locator("#core-reasoning").scrollIntoViewIfNeeded();
 

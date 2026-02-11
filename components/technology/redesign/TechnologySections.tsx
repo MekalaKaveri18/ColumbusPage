@@ -99,13 +99,15 @@ export function TechnologySections() {
           <div className={styles.indexSlide}>
             <RevealOnView className={styles.indexCopy}>
               <h1>Building a brain for Earth.</h1>
-              <p>
-                At Columbus, we want to collect the world&apos;s data and build a
-                brain that comprehends it all.
+              <p className={styles.indexCopyLead}>
+                At Columbus, we want to collect the world&apos;s data, and
+                <br />
+                build a brain that comprehends it all.
               </p>
-              <p>
-                We&apos;re building frontier geospatial intelligence. It&apos;s pretty
-                cool.
+              <p className={styles.indexCopyLead}>
+                We&apos;re building frontier geospatial intelligence.
+                <br />
+                <span className={styles.indexHandwritten}>It&apos;s pretty cool.</span>
               </p>
             </RevealOnView>
 
@@ -228,9 +230,9 @@ export function TechnologySections() {
             <div className={styles.dataList}>
               <p>Data Collection</p>
               <ul>
-                <li>our collection methods</li>
-                <li>dormant data</li>
-                <li>broken data</li>
+                <li>· our collection methods</li>
+                <li>· dormant data</li>
+                <li>· broken data</li>
               </ul>
             </div>
           </RevealOnView>
@@ -329,10 +331,10 @@ export function TechnologySections() {
                   But, does an adult need to know the whole world to understand
                   the semantic nature of a city&apos;s fabric?
                 </p>
-                <a href="#" className={styles.articleLinkSmall}>
-                  Read our article ↗
-                </a>
               </div>
+              <a href="#" className={styles.articleLinkSmall}>
+                Read our article ↗
+              </a>
             </article>
             <p className={styles.gridNo}>Well, no.</p>
           </RevealOnView>

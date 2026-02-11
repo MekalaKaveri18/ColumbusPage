@@ -3,7 +3,6 @@
 import { useState, type ReactNode } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { MapBackground, MapMarker } from "@/components/map/MapBackground";
-import { ChatBar } from "@/components/chat/ChatBar";
 
 type Sector = "FASHION" | "RESTAURANTS" | "CAFES";
 
@@ -351,8 +350,6 @@ export default function MarketSpyPage() {
                                 <p className="text-sm">Select a category and a filter to see insights.</p>
                             </div>
                         )}
-
-                        <ChatBar forcedInput={chatQuery} variant="inline" />
 
                         {/* Competitor List */}
                         <div className="pt-4 border-t border-gray-100">

@@ -71,22 +71,22 @@ export const Navbar = () => {
 
     return (
         <nav
-            className="fixed top-0 left-0 right-0 z-50 bg-white"
+            className="fixed top-0 left-0 right-0 z-50 border-b border-[#0a1628]/12 bg-[#f7f7f6]"
             onMouseEnter={() => setIsMenuOpen(true)}
             onMouseLeave={() => setIsMenuOpen(false)}
         >
             {/* Backdrop Blur Effect */}
             <div
-                className={`fixed top-16 left-0 right-0 bottom-0 bg-black/10 backdrop-blur-sm z-[-1] pointer-events-none transition-opacity duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                className={`fixed top-[76px] left-0 right-0 bottom-0 bg-black/10 backdrop-blur-sm z-[-1] pointer-events-none transition-opacity duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     isMenuOpen ? "opacity-100" : "opacity-0"
                 }`}
             />
 
-            <div className="max-w-5xl mx-auto px-4 relative z-50">
-                <div className="flex items-center justify-between h-16">
+            <div className="relative z-50 mx-auto w-full max-w-[980px] px-5 lg:px-8">
+                <div className="flex h-[76px] items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2">
-                        <div className="relative w-8 h-8">
+                    <Link href="/" className="flex items-center gap-2.5">
+                        <div className="relative h-9 w-9">
                             <Image
                                 src="/logobueno.png"
                                 alt="Columbus Logo"
@@ -95,39 +95,39 @@ export const Navbar = () => {
                                 priority
                             />
                         </div>
-                        <span className="text-xl font-semibold text-[#0a1628] tracking-tight">
+                        <span className="text-[22px] font-semibold leading-none tracking-[-0.01em] text-[#0a1628]">
                             Columbus Earth
                         </span>
                     </Link>
 
                     {/* Navigation Links + Buttons */}
-                    <div className="flex items-center gap-8">
-                        <div className="hidden md:flex items-center gap-8">
+                    <div className="flex items-center gap-5">
+                        <div className="hidden items-center gap-10 md:flex">
                             <Link
                                 href="#"
-                                className="text-[#0a1628] text-base font-semibold hover:text-gray-600 transition-colors"
+                                className="text-[16px] font-semibold text-[#0a1628] transition-colors hover:text-gray-600"
                             >
                                 Product
                             </Link>
                             <Link
                                 href="#"
-                                className="text-[#0a1628] text-base font-semibold hover:text-gray-600 transition-colors"
+                                className="text-[16px] font-semibold text-[#0a1628] transition-colors hover:text-gray-600"
                             >
                                 Use Cases
                             </Link>
                             <Link
                                 href="/technology"
-                                className="text-[#0a1628] text-base font-semibold hover:text-gray-600 transition-colors"
+                                className="text-[16px] font-semibold text-[#0a1628] transition-colors hover:text-gray-600"
                             >
                                 Technology
                             </Link>
                         </div>
 
-                        <div className="flex items-center gap-2">
-                            <button className="bg-white text-[#0a1628] hover:bg-gray-50 px-4 py-1.5 text-base font-semibold transition-colors border border-[#0a1628]">
+                        <div className="flex items-center gap-2.5">
+                            <button className="h-[44px] min-w-[188px] border border-[#0a1628]/85 bg-white px-8 text-[15px] font-semibold text-[#0a1628] transition-colors hover:bg-gray-50">
                                 Start Now
                             </button>
-                            <button className="w-9 h-9 flex items-center justify-center hover:bg-gray-50 transition-colors border border-[#0a1628]">
+                            <button className="flex h-[44px] w-[44px] items-center justify-center border border-[#0a1628]/85 transition-colors hover:bg-gray-50">
                                 <svg
                                     width="16"
                                     height="16"
@@ -136,14 +136,14 @@ export const Navbar = () => {
                                     xmlns="http://www.w3.org/2000/svg"
                                 >
                                     <path
-                                        d="M3 12H21"
+                                        d="M3 6H21"
                                         stroke="#0a1628"
                                         strokeWidth="2"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                     />
                                     <path
-                                        d="M3 6H21"
+                                        d="M3 12H21"
                                         stroke="#0a1628"
                                         strokeWidth="2"
                                         strokeLinecap="round"

@@ -77,7 +77,7 @@ export function TechSidebarNav() {
       <nav>
         <ul className={styles.sidebarList}>
           {TECHNOLOGY_NAV_ITEMS.map((item) => {
-            const isActive = activeNavId === item.id;
+            const isActive = item.id !== "index" && activeNavId === item.id;
 
             return (
               <li key={item.id}>
