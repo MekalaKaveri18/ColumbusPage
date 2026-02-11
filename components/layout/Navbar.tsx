@@ -104,7 +104,7 @@ export const Navbar = () => {
                     </Link>
 
                     {/* Navigation Links + Buttons */}
-                    <div className="flex items-center gap-10 md:translate-x-[50px] lg:translate-x-[90px] xl:translate-x-[120px]">
+                    <div className="flex items-center gap-10 md:translate-x-[50px] lg:translate-x-[90px] xl:translate-x-[200px]">
                         <div className="hidden items-center gap-15 md:flex">
                             <Link
                                 href="#"
