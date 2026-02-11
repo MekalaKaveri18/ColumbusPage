@@ -24,9 +24,9 @@
   height: calc(100vh - var(--tech-header-height));
   overflow-x: hidden;
   overflow-y: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
-  overscroll-behavior-y: contain;
+  scroll-behavior: auto;
+  overscroll-behavior-y: none;
+  will-change: scroll-position;
 }
 
 .pageShell {
@@ -53,16 +53,13 @@
 .section {
   min-height: calc(100vh - var(--tech-header-height));
   scroll-margin-top: 0;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   display: flex;
   align-items: stretch;
   padding: 0;
 }
 
 .noSnapSection {
-  scroll-snap-align: none;
-  scroll-snap-stop: normal;
+  scroll-margin-top: 0;
 }
 
 .slideFrame {
@@ -1437,7 +1434,6 @@
   .pageBody {
     height: auto;
     overflow: visible;
-    scroll-snap-type: none;
     overscroll-behavior-y: auto;
   }
 
@@ -1462,8 +1458,6 @@
 
   .section {
     min-height: auto;
-    scroll-snap-align: none;
-    scroll-snap-stop: normal;
     padding: 26px 0;
   }
 

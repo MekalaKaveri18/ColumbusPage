@@ -4,11 +4,13 @@ import styles from "./technology.module.css";
 import { TechFooter } from "./TechFooter";
 import { TechSidebarNav } from "./TechSidebarNav";
 import { TechnologySections } from "./redesign/TechnologySections";
+import { VantorScrollFeel } from "./redesign/VantorScrollFeel";
 
 export function TechnologyPage() {
   return (
     <main className={`${styles.page} ${styles.dotGrid}`}>
       <Navbar />
+      <VantorScrollFeel />
 
       <div className={styles.pageBody}>
         <div className={styles.pageShell}>
