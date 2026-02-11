@@ -283,10 +283,6 @@ export function TechnologySections() {
                 priority
               />
               <div className={styles.imageShade} />
-              <div className={styles.gridIntroCopy}>
-                Shibuya crossing in Tokyo. The world&apos;s most busy street,
-                densely packed with businesses and infrastructure.
-              </div>
             </div>
             <div className={styles.scrollHint}>
               <span aria-hidden="true">↓</span>
@@ -296,7 +292,7 @@ export function TechnologySections() {
         </div>
       </Slide>
 
-      <Slide id="grid-full">
+      <Slide id="grid-full" className={styles.fullBleedSection}>
         <div className={styles.slideFrame}>
           <RevealOnView className={styles.gridFullReveal}>
             <div className={styles.gridFullMedia}>
@@ -357,7 +353,7 @@ export function TechnologySections() {
         </div>
       </Slide>
 
-      <Slide id="genlayers">
+      <Slide id="genlayers" className={styles.fullBleedSection}>
         <div className={styles.slideFrame}>
           <div className={styles.genlayersSlide}>
             <Image src="/forest.png" alt="Mapping the unknown with GenLayers" fill sizes="100vw" className={styles.coverImage} />
@@ -428,7 +424,7 @@ export function TechnologySections() {
         </div>
       </Slide>
 
-      <Slide id="dynamic-layers">
+      <Slide id="dynamic-layers" className={styles.fullBleedSection}>
         <div className={styles.slideFrame}>
           <div className={styles.dynamicSlide}>
             <div className={styles.dynamicTopBlur} aria-hidden="true" />
@@ -521,7 +517,7 @@ export function TechnologySections() {
         </div>
       </Slide>
 
-      <Slide id="hiring-humans" className={styles.hiringSection}>
+      <Slide id="hiring-humans" className={[styles.hiringSection, styles.fullBleedSection].join(" ")}>
         <div className={styles.slideFrame}>
           <div className={styles.hiringArcWrap}>
             <div className={styles.hiringArcHighlight} aria-hidden="true" />

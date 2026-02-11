@@ -30,6 +30,13 @@ export const OBSERVED_SECTION_IDS: TechnologySectionId[] = [
   "hiring-humans",
 ];
 
+export const SIDEBAR_HIDDEN_ON = new Set<TechnologySectionId>([
+  "grid-full",
+  "genlayers",
+  "dynamic-layers",
+  "hiring-humans",
+]);
+
 export const LLM_TOKEN_LINES = [
   "a large language model is trained on",
   "huge sets of text data for tokenization",

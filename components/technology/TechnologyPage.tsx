@@ -18,7 +18,9 @@ export function TechnologyPage() {
 
           <div className={styles.contentColumn}>
             <TechnologySections />
-            <TechFooter />
+            <div className={styles.footerBleedWrap}>
+              <TechFooter />
+            </div>
           </div>
         </div>
       </div>

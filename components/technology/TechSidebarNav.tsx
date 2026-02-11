@@ -4,7 +4,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import styles from "./technology.module.css";
-import { OBSERVED_SECTION_IDS, TECHNOLOGY_NAV_ITEMS } from "./redesign/content";
+import {
+  OBSERVED_SECTION_IDS,
+  SIDEBAR_HIDDEN_ON,
+  TECHNOLOGY_NAV_ITEMS,
+} from "./redesign/content";
 import type { TechnologySectionId } from "./redesign/types";
 
 export function TechSidebarNav() {
@@ -40,8 +44,14 @@ export function TechSidebarNav() {
     return () => observer.disconnect();
   }, []);
 
+  const isHidden = SIDEBAR_HIDDEN_ON.has(activeId);
+
   return (
-    <aside className={styles.sidebar} aria-label="Technology section index">
+    <aside
+      className={[styles.sidebar, isHidden ? styles.sidebarHidden : ""].join(" ")}
+      aria-label="Technology section index"
+      aria-hidden={isHidden}
+    >
       <nav>
         <ul className={styles.sidebarList}>
           {TECHNOLOGY_NAV_ITEMS.map((item) => {
