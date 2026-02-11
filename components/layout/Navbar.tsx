@@ -98,7 +98,7 @@ export const Navbar = () => {
                                 priority
                             />
                         </div>
-                        <span className="text-[27px] font-semibold leading-none tracking-[-0.01em] text-[#0a1628]">
+                        <span className="text-[27px] font-semibold leading-none tracking-[-0.01em] text-[#0A1344]">
                             Columbus Earth
                         </span>
                     </Link>
@@ -127,7 +127,7 @@ export const Navbar = () => {
                         </div>
 
                         <div className="flex items-center gap-8">
-                            <button className="h-[44px] min-w-[188px] border border-[#0a1628]/85 bg-white px-8 text-[18px] font-semibold text-[#0a1628] transition-colors hover:bg-gray-50">
+                            <button className="h-[44px] min-w-[166px] border border-[#0A1344]/85 bg-white px-8 text-[18px] font-semibold text-[#0A1344] transition-colors hover:bg-gray-50">
                                 Start Now
                             </button>
                             <button className="flex h-[44px] w-[44px] items-center justify-center border border-[#0a1628]/85 transition-colors hover:bg-gray-50">
@@ -140,21 +140,21 @@ export const Navbar = () => {
                                 >
                                     <path
                                         d="M2 6H22"
-                                        stroke="#0a1628"
+                                        stroke="#0A1344"
                                         strokeWidth="2.6"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                     />
                                     <path
                                         d="M2 12H22"
-                                        stroke="#0a1628"
+                                        stroke="#0A1344"
                                         strokeWidth="2.6"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                     />
                                     <path
                                         d="M2 18H22"
-                                        stroke="#0a1628"
+                                        stroke="#0A1344"
                                         strokeWidth="2.6"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
