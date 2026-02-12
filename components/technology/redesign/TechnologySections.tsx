@@ -9,6 +9,7 @@ import {
   LLM_TOKEN_LINES,
   RESEARCH_CARDS,
 } from "./content";
+import { GridScrollSequence } from "./GridScrollSequence";
 import { RevealOnView } from "./RevealOnView";
 import type { TechnologySectionId } from "./types";
 
@@ -271,75 +272,7 @@ export function TechnologySections() {
         </div>
       </Slide>
 
-      <Slide id="grid-intro">
-        <div className={styles.slideFrame}>
-          <RevealOnView className={styles.gridIntroSlide}>
-            <p className={styles.kicker}>The Grid</p>
-            <div className={styles.gridIntroCard}>
-              <Image
-                src="/tokyo.png"
-                alt="Shibuya crossing in Tokyo"
-                fill
-                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 92vw, 1400px"
-                className={styles.coverImage}
-                priority
-              />
-              <div className={styles.imageShade} />
-            </div>
-            <div className={styles.scrollHint}>
-              <span aria-hidden="true">↓</span>
-              <span>Scroll to see our magic.</span>
-            </div>
-          </RevealOnView>
-        </div>
-      </Slide>
-
-      <Slide id="grid-full" className={styles.fullBleedSection}>
-        <div className={styles.slideFrame}>
-          <RevealOnView className={styles.gridFullReveal}>
-            <div className={styles.gridFullMedia}>
-              <Image src="/tokyo.png" alt="Shibuya crossing full view" fill sizes="100vw" className={styles.coverImage} />
-              <div className={styles.imageShadeStrong} />
-              <div className={styles.gridFullCopy}>
-                Shibuya crossing in Tokyo. The world&apos;s most busy street,
-                densely packed with businesses and infrastructure.
-              </div>
-            </div>
-          </RevealOnView>
-        </div>
-      </Slide>
-
-      <Slide id="grid-article">
-        <div className={styles.slideFrame}>
-          <RevealOnView className={styles.gridArticleSlide}>
-            <p className={styles.kicker}>The Grid</p>
-            <article className={styles.gridArticleCard}>
-              <Image
-                src="/tokyo.png"
-                alt="Earth grid map"
-                fill
-                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 92vw, 1400px"
-                className={styles.coverImageMap}
-              />
-              <div className={styles.gridOverlay} />
-              <p className={styles.gridTopCopy}>
-                The whole world is comprised of 13,000,000,000,000 squares. And
-                that&apos;s with 100x100 meter grids.
-              </p>
-              <div className={styles.gridGlassPanel}>
-                <p>
-                  But, does an adult need to know the whole world to understand
-                  the semantic nature of a city&apos;s fabric?
-                </p>
-              </div>
-              <a href="#" className={styles.articleLinkSmall}>
-                Read our article ↗
-              </a>
-            </article>
-            <p className={styles.gridNo}>Well, no.</p>
-          </RevealOnView>
-        </div>
-      </Slide>
+      <GridScrollSequence />
 
       <Slide id="core-reasoning" className={styles.coreReasoningSlide}>
         <div className={styles.verticalLineOverlay} aria-hidden="true" />

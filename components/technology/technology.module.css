@@ -601,27 +601,161 @@
   animation: pulseRing 3.2s ease-in-out infinite;
 }
 
-.gridIntroSlide,
-.gridArticleSlide,
 .researchSlide,
 .careersSlide {
   width: 100%;
 }
 
-.gridIntroCard,
-.gridArticleCard,
 .genlayersSlide,
-.dynamicSlide,
-.gridFullMedia {
+.dynamicSlide {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
 }
 
-.gridIntroCard {
-  margin-top: 14px;
-  height: min(66vh, 720px);
+.gridArticleCard {
+  position: relative;
+  overflow: hidden;
+  margin-top: 12px;
   border: 1px solid rgba(10, 22, 40, 0.2);
+  background: #0f1e3d;
+}
+
+.gridSequenceSection {
+  --grid-seq-progress: 0;
+  --grid-seq-full: 0;
+  --grid-seq-shibuya: 0;
+  --grid-seq-world: 0;
+  --grid-seq-no: 0;
+  --grid-seq-hint: 1;
+  --grid-seq-grid: 0;
+  --grid-seq-kicker: 1;
+  min-height: calc((100vh - var(--tech-header-height)) * 3.25);
+  position: relative;
+}
+
+.sequenceAnchor {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.sequenceAnchorMid {
+  top: 44%;
+}
+
+.sequenceAnchorEnd {
+  top: 79%;
+}
+
+.gridSequenceSticky {
+  position: sticky;
+  top: 0;
+  min-height: calc(100vh - var(--tech-header-height));
+  align-items: flex-start;
+}
+
+.gridSequenceCanvas {
+  width: 100%;
+  padding-top: clamp(0.7rem, 1.5vw, 1.3rem);
+}
+
+.gridSequenceKicker {
+  margin-bottom: clamp(0.45rem, 1vw, 0.9rem);
+  opacity: var(--grid-seq-kicker);
+  transform: translate3d(0, calc((1 - var(--grid-seq-kicker)) * 12px), 0);
+  transition: opacity 240ms linear, transform 240ms linear;
+}
+
+.gridSequenceMedia {
+  --grid-card-start-height: min(66vh, 720px);
+  --grid-card-end-height: calc(100vh - var(--tech-header-height));
+  width: calc(100% + (var(--tech-sidebar-width) * var(--grid-seq-full)));
+  height: calc(
+    var(--grid-card-start-height) + ((var(--grid-card-end-height) - var(--grid-card-start-height)) * var(--grid-seq-full))
+  );
+  margin-top: 0;
+  border-radius: calc(12px * (1 - var(--grid-seq-full)));
+  border-color: rgba(10, 22, 40, calc(0.18 - (0.14 * var(--grid-seq-full))));
+  transform: translate3d(calc(-1 * var(--tech-sidebar-width) * var(--grid-seq-full)), 0, 0)
+    scale(calc(1 + (0.024 * var(--grid-seq-full))));
+  transform-origin: center top;
+  will-change: transform, width, height, border-radius;
+}
+
+.gridSequenceGridOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(12, 27, 56, 0.56) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(12, 27, 56, 0.56) 1px, transparent 1px);
+  background-size: 22px 100%, 100% 22px;
+  opacity: calc(0.14 + (0.76 * var(--grid-seq-grid)));
+}
+
+.gridSequenceShibuyaText {
+  position: absolute;
+  left: clamp(1rem, 3.4vw, 2.8rem);
+  top: clamp(1rem, 3vw, 2.6rem);
+  width: min(760px, 76%);
+  margin: 0;
+  font-size: clamp(2.2rem, 4.1vw, 4.3rem);
+  line-height: 1.1;
+  color: rgba(246, 249, 255, 0.96);
+  opacity: var(--grid-seq-shibuya);
+  transform: translate3d(0, calc((1 - var(--grid-seq-shibuya)) * 28px), 0);
+  text-shadow:
+    0 2px 3px rgba(4, 8, 18, 0.84),
+    0 10px 28px rgba(4, 8, 18, 0.62);
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+
+.gridSequenceTopCopy,
+.gridSequenceGlass,
+.gridSequenceArticleLink {
+  opacity: var(--grid-seq-world);
+  transform: translate3d(0, calc((1 - var(--grid-seq-world)) * 18px), 0);
+  will-change: opacity, transform;
+}
+
+.gridSequenceTopCopy {
+  right: clamp(1.2rem, 2.8vw, 2.3rem);
+  top: clamp(1rem, 2.7vw, 2.15rem);
+  width: min(920px, 86%);
+  font-size: clamp(1.65rem, 2.65vw, 3rem);
+  line-height: 1.2;
+}
+
+.gridSequenceGlass {
+  width: min(920px, calc(100% - 20rem));
+  bottom: clamp(2.15rem, 5vw, 4rem);
+}
+
+.gridSequenceArticleLink {
+  right: clamp(1.2rem, 2.8vw, 2.25rem);
+  bottom: clamp(0.95rem, 2.2vw, 1.7rem);
+  font-size: clamp(1.18rem, 1.45vw, 1.65rem);
+}
+
+.gridSequenceNo {
+  margin: 14px 0 0;
+  font-size: clamp(1.38rem, 1.75vw, 1.95rem);
+  color: rgba(0, 0, 0, 0.86);
+  opacity: var(--grid-seq-no);
+  transform: translate3d(0, calc((1 - var(--grid-seq-no)) * 16px), 0);
+  will-change: opacity, transform;
+}
+
+.gridSequenceHint {
+  margin-top: 14px;
+  opacity: var(--grid-seq-hint);
+  transform: translate3d(0, calc((1 - var(--grid-seq-hint)) * 16px), 0);
+  will-change: opacity, transform;
 }
 
 .coverImage,
@@ -654,16 +788,6 @@
   background: linear-gradient(90deg, rgba(5, 12, 26, 0.58) 0%, rgba(5, 12, 26, 0.22) 58%, rgba(5, 12, 26, 0.08) 100%);
 }
 
-.gridIntroCopy {
-  position: absolute;
-  left: 3.8%;
-  bottom: 12%;
-  max-width: min(780px, 85%);
-  font-size: clamp(2rem, 3.9vw, 4.25rem);
-  line-height: 1.12;
-  color: #f7f9ff;
-}
-
 .scrollHint {
   margin-top: 14px;
   display: inline-flex;
@@ -674,57 +798,6 @@
 
 .scrollHint span:first-child {
   font-size: 1.8rem;
-}
-
-.gridFullReveal {
-  width: 100%;
-  min-height: calc(100vh - var(--tech-header-height));
-}
-
-.gridFullMedia {
-  width: 100%;
-  height: calc(100vh - var(--tech-header-height));
-  border-radius: 0;
-  transform: scale(0.89);
-  filter: saturate(0.82);
-  transition:
-    transform 1040ms cubic-bezier(0.22, 1, 0.36, 1),
-    filter 1040ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.revealVisible .gridFullMedia {
-  transform: scale(1);
-  filter: saturate(1);
-}
-
-.gridFullCopy {
-  position: absolute;
-  left: clamp(1.1rem, 3.5vw, 3.2rem);
-  top: clamp(1rem, 3.5vw, 2.8rem);
-  max-width: min(760px, 74%);
-  font-size: clamp(2.2rem, 4.05vw, 4.3rem);
-  line-height: 1.1;
-  color: rgba(246, 248, 255, 0.96);
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 620ms ease 420ms,
-    transform 620ms cubic-bezier(0.2, 0.75, 0.2, 1) 420ms;
-  text-shadow:
-    0 1px 2px rgba(4, 8, 18, 0.8),
-    0 8px 24px rgba(4, 8, 18, 0.6);
-}
-
-.revealVisible .gridFullCopy {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.gridArticleCard {
-  margin-top: 12px;
-  height: min(68vh, 740px);
-  border: 1px solid rgba(10, 22, 40, 0.2);
-  background: #0f1e3d;
 }
 
 .gridOverlay {
@@ -1480,6 +1553,60 @@
     right: auto;
   }
 
+  .gridSequenceSection {
+    min-height: auto;
+    --grid-seq-full: 0;
+    --grid-seq-shibuya: 0;
+    --grid-seq-world: 1;
+    --grid-seq-no: 1;
+    --grid-seq-hint: 0;
+    --grid-seq-grid: 1;
+    --grid-seq-kicker: 1;
+  }
+
+  .gridSequenceSticky {
+    position: relative;
+    top: auto;
+    min-height: auto;
+  }
+
+  .gridSequenceCanvas {
+    padding-top: 0;
+  }
+
+  .gridSequenceMedia {
+    width: 100%;
+    transform: none;
+    border-radius: 12px;
+    height: min(74vh, 680px);
+  }
+
+  .gridSequenceTopCopy,
+  .gridSequenceGlass,
+  .gridSequenceArticleLink,
+  .gridSequenceNo,
+  .gridSequenceHint {
+    opacity: 1;
+    transform: none;
+  }
+
+  .gridSequenceTopCopy {
+    width: min(680px, 92%);
+  }
+
+  .gridSequenceGlass {
+    width: min(820px, calc(100% - 2rem));
+    bottom: clamp(4rem, 8vw, 5.8rem);
+  }
+
+  .gridSequenceArticleLink {
+    font-size: clamp(1rem, 1.2vw, 1.12rem);
+  }
+
+  .gridSequenceShibuyaText {
+    width: min(760px, 92%);
+  }
+
   .genlayersHeader {
     max-width: 88%;
   }
@@ -1524,13 +1651,21 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .gridIntroCopy,
-  .gridFullCopy {
-    max-width: 92%;
-  }
-
   .gridGlassPanel {
     padding-bottom: clamp(0.95rem, 2.2vw, 1.85rem);
+  }
+
+  .gridSequenceMedia {
+    height: min(70vh, 620px);
+  }
+
+  .gridSequenceTopCopy {
+    width: min(92%, 680px);
+  }
+
+  .gridSequenceGlass {
+    width: min(820px, calc(100% - 1.2rem));
+    bottom: clamp(3.7rem, 9vw, 5.2rem);
   }
 
   .genlayersCallout {
@@ -1565,12 +1700,29 @@
     animation: none;
   }
 
-  .gridFullMedia,
+  .gridSequenceKicker,
+  .gridSequenceMedia,
+  .gridSequenceShibuyaText,
+  .gridSequenceTopCopy,
+  .gridSequenceGlass,
+  .gridSequenceArticleLink,
+  .gridSequenceNo,
+  .gridSequenceHint,
   .articleLink,
   .articleLinkSmall,
   .researchCard,
   .dynamicPill,
   .careersSend {
     transition: none;
+  }
+
+  .gridSequenceShibuyaText,
+  .gridSequenceTopCopy,
+  .gridSequenceGlass,
+  .gridSequenceArticleLink,
+  .gridSequenceNo,
+  .gridSequenceHint {
+    opacity: 1;
+    transform: none;
   }
 }

@@ -76,11 +76,9 @@ export const Navbar = () => {
             onMouseLeave={() => setIsMenuOpen(false)}
         >
             {/* Backdrop Blur Effect */}
-            <div
-                className={`fixed top-[76px] left-0 right-0 bottom-0 bg-black/10 backdrop-blur-sm z-[-1] pointer-events-none transition-opacity duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                    isMenuOpen ? "opacity-100" : "opacity-0"
-                }`}
-            />
+            {isMenuOpen ? (
+                <div className="fixed top-[76px] left-0 right-0 bottom-0 bg-black/10 backdrop-blur-sm z-[-1] pointer-events-none" />
+            ) : null}
 
             <div className="relative z-50 mx-auto w-full max-w-[980px] px-5 lg:px-8">
                 <div className="flex h-[76px] items-center justify-between">
@@ -168,10 +166,10 @@ export const Navbar = () => {
 
             {/* Mega Menu Dropdown - Slower smooth slide down */}
             <div
-                className={`absolute top-full left-0 right-0 bg-white shadow-2xl overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                className={`absolute top-full left-0 right-0 overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     isMenuOpen
-                        ? "max-h-[600px] opacity-100 border-b border-gray-100"
-                        : "max-h-0 opacity-0"
+                        ? "max-h-[600px] opacity-100 border-b border-gray-100 bg-white shadow-2xl"
+                        : "max-h-0 opacity-0 pointer-events-none"
                 }`}
             >
                 <div
