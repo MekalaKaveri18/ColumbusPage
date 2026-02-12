@@ -6,8 +6,6 @@ export type TechnologySectionId =
   | "data-collection"
   | "fusing"
   | "grid-intro"
-  | "grid-full"
-  | "grid-article"
   | "core-reasoning"
   | "genlayers"
   | "research-blog"

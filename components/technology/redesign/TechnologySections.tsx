@@ -213,7 +213,7 @@ export function TechnologySections() {
         </div>
       </Slide>
 
-      <Slide id="data-collection">
+      <Slide id="data-collection" className={styles.dataCollectionSection}>
         <div className={styles.slideFrame}>
           <RevealOnView className={styles.dataSlide}>
             <p className={styles.kicker}>Data Collection</p>
@@ -240,7 +240,7 @@ export function TechnologySections() {
         </div>
       </Slide>
 
-      <Slide id="fusing">
+      <Slide id="fusing" className={styles.fusingSection}>
         <div className={styles.slideFrame}>
           <div className={styles.fusingSlide}>
             <RevealOnView className={styles.fusingCopy}>

@@ -30,17 +30,17 @@ export function GridScrollSequence() {
       const travel = Math.max(rect.height - viewportHeight, 1);
       const p = clamp01((-rect.top) / travel);
 
-      const zoomIn = clamp01((p - 0.04) / 0.3);
-      const zoomOut = clamp01((p - 0.62) / 0.24);
-      const fullStrength = p < 0.62 ? zoomIn : 1 - zoomOut;
+      const zoomIn = clamp01((p - 0.02) / 0.28);
+      const zoomOut = clamp01((p - 0.56) / 0.28);
+      const fullStrength = p < 0.56 ? zoomIn : 1 - zoomOut;
 
       const shibuyaIn = clamp01((p - 0.3) / 0.12);
-      const shibuyaOut = clamp01((p - 0.56) / 0.1);
+      const shibuyaOut = clamp01((p - 0.56) / 0.12);
       const shibuyaOpacity = clamp01(shibuyaIn * (1 - shibuyaOut));
-      const worldOpacity = clamp01((p - 0.72) / 0.14);
-      const noOpacity = clamp01((p - 0.8) / 0.12);
-      const hintOpacity = 1 - clamp01((p - 0.1) / 0.18);
-      const gridOpacity = clamp01((p - 0.66) / 0.2);
+      const worldOpacity = clamp01((p - 0.7) / 0.16);
+      const noOpacity = clamp01((p - 0.86) / 0.14);
+      const hintOpacity = 1 - clamp01((p - 0.04) / 0.12);
+      const gridOpacity = clamp01((p - 0.68) / 0.18);
       const kickerOpacity = 1 - clamp01((p - 0.18) / 0.14);
 
       section.style.setProperty("--grid-seq-progress", p.toFixed(4));
@@ -73,14 +73,11 @@ export function GridScrollSequence() {
 
   return (
     <section id="grid-intro" ref={sequenceSectionRef} className={[styles.section, styles.gridSequenceSection].join(" ")}>
-      <section id="grid-full" className={[styles.sequenceAnchor, styles.sequenceAnchorMid].join(" ")} aria-hidden="true" />
-      <section id="grid-article" className={[styles.sequenceAnchor, styles.sequenceAnchorEnd].join(" ")} aria-hidden="true" />
-
       <div className={[styles.slideFrame, styles.gridSequenceSticky].join(" ")}>
         <div className={styles.gridSequenceCanvas}>
-          <p className={[styles.kicker, styles.gridSequenceKicker].join(" ")}>The Grid</p>
-
           <div className={[styles.gridArticleCard, styles.gridSequenceMedia].join(" ")}>
+            <p className={[styles.kicker, styles.gridSequenceKicker].join(" ")}>The Grid</p>
+
             <Image
               src="/tokyo.png"
               alt="Shibuya crossing in Tokyo"

@@ -442,6 +442,17 @@
   width: 100%;
 }
 
+.dataCollectionSection {
+  min-height: auto;
+}
+
+.dataCollectionSection .slideFrame {
+  min-height: auto;
+  align-items: flex-start;
+  padding-top: clamp(0.8rem, 1.6vw, 1.4rem);
+  padding-bottom: clamp(0.8rem, 1.6vw, 1.4rem);
+}
+
 .sectionTitle {
   margin: 18px 0 0;
   max-width: 920px;
@@ -490,6 +501,21 @@
   align-items: center;
 }
 
+.fusingSection {
+  min-height: auto;
+}
+
+.fusingSection .slideFrame {
+  min-height: auto;
+  align-items: flex-start;
+  padding-top: clamp(0.6rem, 1.2vw, 1.1rem);
+  padding-bottom: clamp(0.2rem, 0.5vw, 0.5rem);
+}
+
+.fusingSection .fusingSlide {
+  align-items: flex-start;
+}
+
 .fusingTitle {
   margin: 0;
   font-size: clamp(2.15rem, 3vw, 3rem);
@@ -512,7 +538,7 @@
 
 .fusingTransitionStage {
   position: relative;
-  min-height: min(72vh, 760px);
+  min-height: min(56vh, 620px);
 }
 
 .fusingFanLines {
@@ -630,8 +656,9 @@
   --grid-seq-hint: 1;
   --grid-seq-grid: 0;
   --grid-seq-kicker: 1;
-  min-height: calc((100vh - var(--tech-header-height)) * 3.25);
+  min-height: calc((100vh - var(--tech-header-height)) * 2.45);
   position: relative;
+  display: block;
 }
 
 .sequenceAnchor {
@@ -654,24 +681,35 @@
 .gridSequenceSticky {
   position: sticky;
   top: 0;
+  height: calc(100vh - var(--tech-header-height));
   min-height: calc(100vh - var(--tech-header-height));
   align-items: flex-start;
 }
 
 .gridSequenceCanvas {
   width: 100%;
-  padding-top: clamp(0.7rem, 1.5vw, 1.3rem);
+  height: 100%;
+  padding-top: 0;
 }
 
 .gridSequenceKicker {
-  margin-bottom: clamp(0.45rem, 1vw, 0.9rem);
+  position: absolute;
+  left: clamp(1rem, 2.6vw, 2.15rem);
+  top: clamp(0.9rem, 2.2vw, 1.7rem);
+  margin: 0;
+  z-index: 4;
+  color: rgba(245, 248, 255, 0.95);
+  text-shadow:
+    0 1px 2px rgba(4, 8, 18, 0.78),
+    0 8px 20px rgba(4, 8, 18, 0.52);
+  pointer-events: none;
   opacity: var(--grid-seq-kicker);
   transform: translate3d(0, calc((1 - var(--grid-seq-kicker)) * 12px), 0);
   transition: opacity 240ms linear, transform 240ms linear;
 }
 
 .gridSequenceMedia {
-  --grid-card-start-height: min(66vh, 720px);
+  --grid-card-start-height: min(78vh, 820px);
   --grid-card-end-height: calc(100vh - var(--tech-header-height));
   width: calc(100% + (var(--tech-sidebar-width) * var(--grid-seq-full)));
   height: calc(
@@ -752,7 +790,7 @@
 }
 
 .gridSequenceHint {
-  margin-top: 14px;
+  margin-top: 10px;
   opacity: var(--grid-seq-hint);
   transform: translate3d(0, calc((1 - var(--grid-seq-hint)) * 16px), 0);
   will-change: opacity, transform;
@@ -1567,6 +1605,7 @@
   .gridSequenceSticky {
     position: relative;
     top: auto;
+    height: auto;
     min-height: auto;
   }
 

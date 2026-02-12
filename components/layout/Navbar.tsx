@@ -75,11 +75,6 @@ export const Navbar = () => {
             onMouseEnter={() => setIsMenuOpen(true)}
             onMouseLeave={() => setIsMenuOpen(false)}
         >
-            {/* Backdrop Blur Effect */}
-            {isMenuOpen ? (
-                <div className="fixed top-[76px] left-0 right-0 bottom-0 bg-black/10 backdrop-blur-sm z-[-1] pointer-events-none" />
-            ) : null}
-
             <div className="relative z-50 mx-auto w-full max-w-[980px] px-5 lg:px-8">
                 <div className="flex h-[76px] items-center justify-between">
                     {/* Logo */}
@@ -262,8 +257,6 @@ export const Navbar = () => {
                     </div>
                 </div>
 
-                {/* Bottom gradient fade */}
-                <div className="h-8 bg-gradient-to-b from-white to-transparent opacity-50"></div>
             </div>
         </nav>
     );

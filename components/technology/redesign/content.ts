@@ -20,8 +20,6 @@ export const OBSERVED_SECTION_IDS: TechnologySectionId[] = [
   "data-collection",
   "fusing",
   "grid-intro",
-  "grid-full",
-  "grid-article",
   "core-reasoning",
   "genlayers",
   "research-blog",
@@ -36,8 +34,6 @@ export const SECTION_TO_NAV_ID: Record<TechnologySectionId, TechnologySectionId>
   "data-collection": "data-collection",
   fusing: "data-collection",
   "grid-intro": "data-collection",
-  "grid-full": "data-collection",
-  "grid-article": "data-collection",
   "core-reasoning": "core-reasoning",
   genlayers: "core-reasoning",
   "research-blog": "research-blog",
@@ -47,7 +43,6 @@ export const SECTION_TO_NAV_ID: Record<TechnologySectionId, TechnologySectionId>
 };
 
 export const SIDEBAR_HIDDEN_ON = new Set<TechnologySectionId>([
-  "grid-full",
   "genlayers",
   "dynamic-layers",
   "hiring-humans",
