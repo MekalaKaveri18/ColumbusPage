@@ -13,11 +13,11 @@ import { GridBackground } from "@/components/home/GridBackground";
 export default function Home() {
   return (
     <main className="min-h-screen relative">
-      <GridBackground />
       <Navbar />
       <div id="home">
         <Hero />
       </div>
+      <GridBackground />
       <div className="mb-0">
         <WhyColumbus />
       </div>

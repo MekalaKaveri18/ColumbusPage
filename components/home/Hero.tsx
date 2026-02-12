@@ -1,9 +1,19 @@
 import { shipporiMincho } from "@/lib/fonts";
+import Image from "next/image";
 
 export const Hero = () => {
     return (
-        <section className="relative mt-[37px] flex w-full min-h-[calc(100vh-76px)] flex-col overflow-hidden">
-            <div className="flex flex-1 items-center">
+        <section className="relative z-10 mt-[37px] flex w-full min-h-[calc(100vh-76px)] flex-col overflow-hidden">
+            {/* Background Image */}
+            <Image
+                src="/hero-background.jpg"
+                alt="Hero background"
+                fill
+                className="object-cover object-center"
+                priority
+            />
+            {/* Content */}
+            <div className="relative z-10 flex flex-1 items-center">
                 <div className="mx-auto w-full max-w-[1080px] px-5 lg:px-8">
                     <h1
                         className={[
