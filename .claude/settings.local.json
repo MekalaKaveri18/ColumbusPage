@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git remote set-url:*)",
+      "Bash(git push:*)",
+      "Bash(git filter-branch:*)",
+      "Bash(git remote add:*)",
+      "WebFetch(domain:www.anduril.com)",
+      "mcp__vercel__list_teams",
+      "mcp__vercel__list_projects",
+      "mcp__vercel__deploy_to_vercel",
+      "Bash(vercel deploy:*)",
+      "Bash(npm install:*)",
+      "Bash(vercel whoami:*)",
+      "Bash(git config:*)",
+      "Bash(git commit:*)",
+      "Bash(npm run dev)",
+      "Bash(git add:*)",
+      "mcp__github__create_repository",
+      "Bash(gh repo view:*)",
+      "Bash(gh auth status:*)",
+      "Bash(gh auth switch:*)",
+      "Bash(gh repo create:*)",
+      "Bash(git remote remove:*)",
+      "Bash(gh repo sync:*)",
+      "Bash(gh auth token)",
+      "Bash(xargs:*)",
+      "Bash(printf:*)",
+      "Bash(git credential-osxkeychain:*)",
+      "Bash(gh auth logout:*)",
+      "Bash(gh auth setup-git)",
+      "Bash(npm run build:*)",
+      "Bash(curl:*)"
+    ]
+  }
+}
