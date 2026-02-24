@@ -19,7 +19,7 @@ export default function OurMissionPage() {
                 </div>
             </div>
 
-            <Footer variant="compact" />
+            <Footer variant={"compact"} />
         </main>
     );
 }

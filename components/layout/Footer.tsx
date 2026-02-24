@@ -1,9 +1,38 @@
 "use client";
 
+import type { FC } from "react";
 import Image from "next/image";
 import { Mail, Linkedin } from "lucide-react";
 
-export const Footer = () => {
+export type FooterProps = {
+  variant?: "default" | "compact";
+};
+
+export const Footer: FC<FooterProps> = ({ variant = "default" }) => {
+  if (variant === "compact") {
+    return (
+      <footer className="relative w-full min-h-[280px] text-white">
+        <Image
+          src="/emoji/Footer.png"
+          alt="Footer Background"
+          fill
+          className="object-cover object-top"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative z-10 h-full max-w-[1200px] mx-auto px-6 py-10 flex flex-col justify-center items-center text-center">
+          <p className="text-sm text-white/80 max-w-xl mb-6">
+            The frontier AI lab building the first production Universal Geospatial Model.
+          </p>
+          <div className="flex gap-4">
+            <Mail size={18} className="cursor-pointer hover:text-white/80" />
+            <Linkedin size={18} className="cursor-pointer hover:text-white/80" />
+          </div>
+        </div>
+      </footer>
+    );
+  }
+
   return (
     <footer className="relative w-full h-[800px] text-white">
 
