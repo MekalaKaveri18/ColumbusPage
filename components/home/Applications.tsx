@@ -1,26 +1,27 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export const Applications = () => {
   const items = [
-    { title: "Residential Real Estate", image: "/apps/1.jpg" },
-    { title: "Commercial Real Estate", image: "/apps/2.jpg" },
-    { title: "Generative Geodata", image: "/apps/3.jpg" },
-    { title: "Logistics Optimization", image: "/apps/4.jpg" },
-    { title: "Urban Planning", image: "/apps/5.jpg" },
-    { title: "Site Selection", image: "/apps/6.jpg" },
-    { title: "Consumer Mapping", image: "/apps/7.jpg" },
-    { title: "Ground Due Diligence", image: "/apps/8.jpg" },
-    { title: "More", image: "/apps/9.jpg" },
+    { title: "Residential Real Estate", image: "/UseCases/ResidentialRealEstate.jpg", href: "/applications/residential-real-estate" },
+    { title: "Commercial Real Estate", image: "/UseCases/CommercialRealEstate.jpg", href: "/applications/commercial-real-estate" },
+    { title: "Generative Geodata", image: "/UseCases/GenDatalayers.png", href: "/applications/generative-geodata" },
+    { title: "Logistics Optimization", image: "/UseCases/Logistics.webp", href: "/applications/logistics-optimization" },
+    { title: "Urban Planning", image: "/UseCases/UrbanPlanning.jpg", href: "/applications/urban-planning" },
+    { title: "Site Selection", image: "/UseCases/SiteSelection.jpg", href: "/applications/site-selection" },
+    { title: "Consumer Mapping", image: "/UseCases/ConsumerMapping.jpeg", href: "/applications/consumer-mapping" },
+    { title: "Ground Due Diligence", image: "/UseCases/GroundDueDillegence.png", href: "/applications/ground-due-diligence" },
+    { title: "More", image: "/UseCases/GeoMarketing.png", href: "/applications" },
   ];
 
   return (
     <section className="bg-white py-20 md:py-28 lg:py-36">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+      <div className="max-w-[1580px] mx-auto px-6 sm:px-8 lg:px-16">
 
         {/* HEADER */}
-        <div className="mb-12 md:mb-16 max-w-4xl">
+        <div className="mb-5 md:mb-6 max-w-full">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight font-semibold tracking-tight text-[#1C274C]">
             We’re actively exploring various application areas
           </h2>
@@ -35,9 +36,10 @@ export const Applications = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 
             {items.map((item, index) => (
-              <button
+              <Link
                 key={index}
-                className="relative group aspect-[16/9] w-full overflow-hidden"
+                href={item.href}
+                className="relative group aspect-[16/9] w-full overflow-hidden block"
               >
                 {/* IMAGE */}
                 <Image
@@ -48,26 +50,25 @@ export const Applications = () => {
                   priority={index < 3}
                 />
 
-                {/* OVERLAY */}
-                <div className="absolute inset-0 bg-black/40 transition duration-300 group-hover:bg-black/60 z-10" />
+                {/* Overlay: only on hover */}
+                <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/60 z-10 pointer-events-none" />
 
-                {/* TEXT */}
-                <div className="absolute inset-0 flex items-center justify-center text-center z-20 px-4">
-                  <div className="text-white">
-                    <h3 className="text-base sm:text-lg md:text-xl font-semibold">
-                      {item.title}
-                    </h3>
+                {/* TEXT — bottom, centered; 10px padding; title higher to fit Learn more below */}
+                <div className="absolute inset-x-0 bottom-0 flex flex-col items-center text-center z-20 px-4 pt-6 pb-2.5">
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                    {item.title}
+                  </h3>
 
-                    <p className="mt-2 sm:mt-3 text-xs sm:text-sm opacity-0 translate-y-2 
-                                  group-hover:opacity-100 
-                                  group-hover:translate-y-0 
-                                  transition-all duration-300 ease-out">
-                      Learn more →
-                    </p>
-                  </div>
+                  <p className="mt-2 text-xs sm:text-sm text-white opacity-0 translate-y-2 
+                                group-hover:opacity-100 
+                                group-hover:translate-y-0 
+                                group-hover:underline
+                                transition-all duration-300 ease-out drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                    Learn more →
+                  </p>
                 </div>
 
-              </button>
+              </Link>
             ))}
 
           </div>

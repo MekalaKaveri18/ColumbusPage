@@ -4,48 +4,50 @@ import Image from "next/image";
 
 export const TravelPromo = () => {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32 md:py-40">
+    <section className="bg-[#F9F9F9] relative overflow-hidden py-24 md:py-32 lg:py-40">
 
-      {/* Center Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 relative min-h-[500px] md:min-h-[650px]">
 
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1C274C] mb-4 md:mb-6">
-          Love to travel or go out?
-        </h2>
+        {/* Center Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
 
-        <p className="text-sm sm:text-base md:text-lg text-[#1C274C]/70 max-w-2xl">
-          <span className="text-[#1E74FF] font-medium">
-            MapsGPT is already answering thousands of queries in your area
-          </span>
-        </p>
+          <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold text-[#1C274C] mb-4 md:mb-6">
+            Love to travel or go out?
+          </h2>
+
+          <p className="mt-6 text-base sm:text-lg md:text-2xl lg:text-3xl font-normal max-w-5xl bg-gradient-to-r from-[#00BFFF] to-[#1E3A98] bg-clip-text text-transparent">
+            <span className="font-medium">MapsGPT</span>
+            <span className="font-normal"> is already answering thousands of queries in your area</span>
+          </p>
+
+        </div>
+
+        {/* Floating Emojis */}
+        <FloatingEmojis />
 
       </div>
-
-      {/* Floating Emojis */}
-      <FloatingEmojis />
-
     </section>
   );
 };
 
 const FloatingEmojis = () => {
   const emojis = [
-    { src: "/emoji/cake.png", top: "8%", left: "6%" },
-    { src: "/emoji/palm.png", top: "6%", left: "18%" },
-    { src: "/emoji/drink.png", top: "18%", left: "45%" },
-    { src: "/emoji/heart.png", top: "14%", left: "62%" },
-    { src: "/emoji/plane.png", top: "20%", left: "82%" },
-    { src: "/emoji/basketball.png", top: "28%", left: "12%" },
-    { src: "/emoji/cocktail.png", top: "35%", left: "25%" },
-    { src: "/emoji/burger.png", top: "30%", left: "72%" },
-    { src: "/emoji/car.png", top: "75%", left: "8%" },
-    { src: "/emoji/champange.png", top: "70%", left: "40%" },
-    { src: "/emoji/earth.png", top: "80%", left: "80%" },
-    { src: "/emoji/ice.png", top: "60%", left: "55%" },
-    { src: "/emoji/arrow.png", top: "50%", left: "20%" },
-    { src: "/emoji/laugh.png", top: "40%", left: "70%" },
-    { src: "/emoji/yo.png", top: "65%", left: "20%" },
-    { src: "/emoji/book.png", top: "55%", left: "85%" },
+    { src: "/emoji/cake.png", top: "2%", left: "2%" },
+    { src: "/emoji/palm.png", top: "3%", left: "18%" },
+    { src: "/emoji/drink.png", top: "8%", left: "50%" },
+    { src: "/emoji/heart.png", top: "4%", left: "82%" },
+    { src: "/emoji/plane.png", top: "10%", left: "97%" },
+    { src: "/emoji/basketball.png", top: "28%", left: "1%" },
+    { src: "/emoji/cocktail.png", top: "35%", left: "24%" },
+    { src: "/emoji/burger.png", top: "22%", left: "96%" },
+    { src: "/emoji/car.png", top: "95%", left: "2%" },
+    { src: "/emoji/champange.png", top: "90%", left: "35%" },
+    { src: "/emoji/earth.png", top: "97%", left: "92%" },
+    { src: "/emoji/ice.png", top: "55%", left: "50%" },
+    { src: "/emoji/arrow.png", top: "50%", left: "8%" },
+    { src: "/emoji/laugh.png", top: "38%", left: "85%" },
+    { src: "/emoji/yo.png", top: "78%", left: "10%" },
+    { src: "/emoji/book.png", top: "58%", left: "97%" },
   ];
 
   return (
@@ -64,10 +66,12 @@ const FloatingEmojis = () => {
             w-8 sm:w-10 md:w-14 lg:w-20
             h-auto
             opacity-80
+            travel-promo-float
           "
           style={{
             top: emoji.top,
             left: emoji.left,
+            animationDelay: `${(index * 0.4) % 5}s`,
           }}
         />
       ))}

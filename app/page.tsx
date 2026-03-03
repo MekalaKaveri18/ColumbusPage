@@ -58,27 +58,107 @@ import { Industries } from "@/components/home/Industries";
 import { PartnerStrip } from "@/components/home/PartnerStrip";
 import { TravelPromo } from "@/components/home/TravelPromo";
 import { UniqueSpotsSection } from "@/components/home/UniqueSpotsSection";
+import { LenisProvider } from "@/components/home/LenisContext";
+
+const sectionColors = [
+  "bg-slate-100",      // a Navbar
+  "bg-blue-50",       // b Hero
+  "bg-emerald-50",    // c MeshSection
+  "bg-amber-50",      // d Vision
+  "bg-rose-50",       // e GeoWarning
+  "bg-cyan-50",       // f SiteSelection
+  "bg-violet-50",     // g PartnerStrip
+  "bg-lime-50",       // h MainFeatures
+  "bg-orange-50",     // i Industries
+  "bg-sky-50",        // j TravelPromo
+  "bg-teal-50",       // k TravelSection
+  "bg-indigo-50",     // l TrustStrip
+  "bg-fuchsia-50",    // m UniqueSpotsSection
+  "bg-stone-100",     // n Applications
+  "bg-zinc-100",      // o Careers
+  "bg-neutral-100",   // p Footer
+] as const;
+
+function SectionLabel({ letter }: { letter: string }) {
+  return (
+    <span
+      className="absolute left-4 top-4 z-10 text-2xl font-bold text-black/40 select-none"
+      aria-hidden
+    >
+      {letter}
+    </span>
+  );
+}
+
 export default function Home() {
   return (
-    <main className="bg-[#F9F9F9]">
-      <Navbar />
-      <Hero />
-      <MeshSection />
-      <Vision />
-      
-      <GeoWarning />
-      <SiteSelection />
-      <PartnerStrip />
-      <MainFeatures />
-      <Industries />
-      <TravelPromo/>
-      <TravelSection />
-      <TrustStrip />
-      <UniqueSpotsSection/>
-      <Applications />
-      <Careers />
-      
-      <Footer />
+    <LenisProvider>
+      <main className="min-h-screen">
+        <section className={`relative ${sectionColors[0]}`}>
+        <SectionLabel letter="a" />
+        <Navbar />
+      </section>
+      <section className={`relative ${sectionColors[1]}`}>
+        <SectionLabel letter="b" />
+        <Hero />
+      </section>
+      <section className={`relative ${sectionColors[2]}`}>
+        <SectionLabel letter="c" />
+        <MeshSection />
+      </section>
+      <section className={`relative ${sectionColors[3]}`}>
+        <SectionLabel letter="d" />
+        <Vision />
+      </section>
+      <section className={`relative ${sectionColors[4]}`}>
+        <SectionLabel letter="e" />
+        <GeoWarning />
+      </section>
+      <section className={`relative ${sectionColors[5]}`}>
+        <SectionLabel letter="f" />
+        <SiteSelection />
+      </section>
+      <section className={`relative ${sectionColors[6]}`}>
+        <SectionLabel letter="g" />
+        <PartnerStrip />
+      </section>
+      <section className={`relative ${sectionColors[7]}`}>
+        <SectionLabel letter="h" />
+        <MainFeatures />
+      </section>
+      <section className={`relative ${sectionColors[8]}`}>
+        <SectionLabel letter="i" />
+        <Industries />
+      </section>
+      <section className={`relative ${sectionColors[9]}`}>
+        <SectionLabel letter="j" />
+        <TravelPromo />
+      </section>
+      <section className={`relative ${sectionColors[10]}`}>
+        <SectionLabel letter="k" />
+        <TravelSection />
+      </section>
+      <section className={`relative ${sectionColors[11]}`}>
+        <SectionLabel letter="l" />
+        <TrustStrip />
+      </section>
+      <section className={`relative ${sectionColors[12]}`}>
+        <SectionLabel letter="m" />
+        <UniqueSpotsSection />
+      </section>
+      <section className={`relative ${sectionColors[13]}`}>
+        <SectionLabel letter="n" />
+        <Applications />
+      </section>
+      <section className={`relative ${sectionColors[14]}`}>
+        <SectionLabel letter="o" />
+        <Careers />
+      </section>
+      <section className={`relative ${sectionColors[15]}`}>
+        <SectionLabel letter="p" />
+        <Footer />
+      </section>
     </main>
+    </LenisProvider>
   );
 }

@@ -12,7 +12,7 @@ export const TrustStrip = () => {
   ];
 
   return (
-    <section className="bg-white py-20 md:py-28 lg:py-32">
+    <section className="bg-[#F9F9F9] py-[30px] md:py-[62px] lg:py-[78px]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
 
         {/* HEADING */}

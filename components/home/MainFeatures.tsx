@@ -54,20 +54,20 @@ export const MainFeatures = () => {
 
   return (
     <section
-      className="relative py-[160px]"
+      className="relative py-[130px]"
       style={{
         backgroundColor: "#FFFFFF",
         backgroundImage: `
           linear-gradient(to right, rgba(28,39,76,0.035) 1px, transparent 1px),
           linear-gradient(to bottom, rgba(28,39,76,0.035) 1px, transparent 1px)
         `,
-        backgroundSize: "120px 120px",
+        backgroundSize: "144px 120px",
       }}
     >
       <div className="max-w-[1528px] mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-[110px]">
+        <div className="text-center mb-[55px]">
           <h2 className="text-[42px] font-medium text-[#1C274C] tracking-[-0.01em]">
             Main Features
           </h2>
@@ -91,7 +91,7 @@ export const MainFeatures = () => {
                   border border-[#E5E8EF]
                   px-[28px]
                   pt-[28px]
-                  shadow-[0_6px_24px_rgba(0,0,0,0.05)]
+                  shadow-[0_2px_8px_rgba(0,0,0,0.03)]
                 "
               >
                 {/* Icon container */}

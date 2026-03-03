@@ -57,3 +57,103 @@ html.lenis body {
   transition-duration: 1ms;
   transition-behavior: allow-discrete;
 }
+
+/* Remove default video outline/shadow in MeshSection and elsewhere */
+video {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Sonar effect for list bullets — expanding ring that fades out */
+@keyframes sonar-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7), 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  40% {
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2), 0 0 0 3px rgba(255, 255, 255, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0), 0 0 0 8px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgba(255, 255, 255, 0), 0 0 0 12px rgba(255, 255, 255, 0);
+  }
+}
+
+.bullet-halo {
+  animation: sonar-pulse 2s ease-out infinite;
+}
+
+/* Slow sinusoidal hover for TravelPromo logos/emojis */
+@keyframes float-sinusoidal {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  12.5% {
+    transform: translate(6px, -10px);
+  }
+  25% {
+    transform: translate(12px, -18px);
+  }
+  37.5% {
+    transform: translate(6px, -24px);
+  }
+  50% {
+    transform: translate(0, -28px);
+  }
+  62.5% {
+    transform: translate(-6px, -24px);
+  }
+  75% {
+    transform: translate(-12px, -18px);
+  }
+  87.5% {
+    transform: translate(-6px, -10px);
+  }
+}
+
+.travel-promo-float {
+  animation: float-sinusoidal 8s ease-in-out infinite;
+}
+
+/* GeoWarning: soft shake then fall to bottom (triggered after 1s in view) */
+@keyframes geo-warning-shake {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-4px, 0); }
+  40% { transform: translate(4px, 0); }
+  60% { transform: translate(-3px, 0); }
+  80% { transform: translate(3px, 0); }
+}
+
+@keyframes geo-warning-fall {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(0, 70%); }
+}
+
+.geo-warning-icons-animate {
+  animation:
+    geo-warning-shake 0.5s ease-in-out,
+    geo-warning-fall 0.7s ease-in 0.5s forwards;
+}
+
+/* UniqueSpotsSection: place card 497×334, 2 full visible + 2 peeking */
+.unique-spots-card {
+  width: 497px;
+  height: 334px;
+  box-sizing: border-box;
+}
+
+@keyframes unique-spots-ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.unique-spots-ticker {
+  animation: unique-spots-ticker-scroll 50s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .unique-spots-ticker {
+    animation: none;
+  }
+}

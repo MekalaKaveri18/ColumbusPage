@@ -4,22 +4,43 @@ import Image from "next/image";
 
 export const PartnerStrip = () => {
   return (
-    <section className="bg-[#F7F8FA] py-16 md:py-20 lg:py-24 border-b border-[#E8EAF0]">
+    <section className="bg-[#F9F9F9] py-[24px] md:py-[40px] lg:py-[56px] border-b border-[#E8EAF0] relative">
+      {/* Vector 4410 */}
+      <div
+        className="absolute w-0 h-[288px] border-l border-[#E8EAF0]"
+        style={{
+          left: "99.5px",
+          top: 0,
+          transform: "matrix(1, 0, 0, -1, 0, 0)",
+        }}
+        aria-hidden
+      />
+      {/* Vector 4410 — right side */}
+      <div
+        className="absolute w-0 h-[288px] border-r border-[#E8EAF0]"
+        style={{
+          right: "99.5px",
+          top: 0,
+          transform: "matrix(1, 0, 0, -1, 0, 0)",
+        }}
+        aria-hidden
+      />
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
 
         {/* Heading Block */}
-        <div className="max-w-3xl mb-10">
+        <div className="max-w-5xl mb-10 -translate-x-[120px]">
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1C274C] leading-tight">
             Vetted, high-fidelity, and smart datasets
           </h3>
 
-          <p className="mt-3 text-sm sm:text-base md:text-lg text-[#1C274C]/60">
+          <p className="mt-3 text-sm sm:text-base md:text-lg text-[#010101]">
             We vet our data with partner organizations
           </p>
         </div>
 
-        {/* Logos Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-7 gap-y-10 gap-x-8 items-center opacity-80">
+        {/* Logos Grid — extends from heading left edge to right Vector */}
+        <div className="-translate-x-[120px] w-[calc(100%+219.5px)]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-7 gap-y-12 gap-x-10 items-center opacity-80">
           <Logo src="/Icon/logo1.png" />
           <Logo src="/Icon/logo2.png" />
           <Logo src="/Icon/image1.png" />
@@ -29,19 +50,20 @@ export const PartnerStrip = () => {
           <Logo src="/Icon/logo7.png" />
         </div>
 
+        </div>
       </div>
     </section>
   );
 };
 
 const Logo = ({ src }: { src: string }) => (
-  <div className="flex justify-center items-center">
+  <div className="flex justify-center items-center min-h-[80px] sm:min-h-[96px] md:min-h-[112px]">
     <Image
       src={src}
       alt=""
-      width={140}
-      height={50}
-      className="object-contain h-8 sm:h-10 md:h-12 lg:h-14 w-auto transition-opacity duration-300 hover:opacity-100"
+      width={180}
+      height={64}
+      className="object-contain h-12 sm:h-14 md:h-16 lg:h-20 w-auto transition-opacity duration-300 hover:opacity-100"
     />
   </div>
 );

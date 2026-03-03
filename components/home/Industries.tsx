@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUp } from "lucide-react";
 
 export const Industries = () => {
   const items = [
@@ -13,16 +14,36 @@ export const Industries = () => {
   ];
 
   return (
-    <section className="bg-white py-20 md:py-28 lg:py-36">
+    <section className="bg-white py-20 md:py-28 lg:py-36 relative">
+      {/* Vector 4412 */}
+      <div
+        className="absolute w-0 h-[645px] border-l border-[#E8EAF0]"
+        style={{
+          left: "99.5px",
+          top: 0,
+          transform: "matrix(1, 0, 0, -1, 0, 0)",
+        }}
+        aria-hidden
+      />
+      {/* Vector 4412 — right side */}
+      <div
+        className="absolute w-0 h-[645px] border-r border-[#E8EAF0]"
+        style={{
+          right: "99.5px",
+          top: 0,
+          transform: "matrix(1, 0, 0, -1, 0, 0)",
+        }}
+        aria-hidden
+      />
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
 
         {/* Heading */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#1C274C] mb-12 md:mb-16">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[#1C274C] mb-[33px] md:mb-[49px] -translate-x-[50px]">
           See how Columbus could help you
         </h2>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-16 -translate-x-[50px] w-[calc(100%+30px)] sm:w-[calc(100%+40px)] md:w-[calc(100%+50px)] lg:w-[calc(100%+70px)]">
 
           {items.map((item, index) => (
             <div key={index}>
@@ -58,15 +79,23 @@ export const Industries = () => {
         </div>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 -translate-x-[50px]">
 
-          <button className="px-6 py-3 border border-[#1C274C]/40 rounded-lg text-sm font-medium text-[#1C274C] hover:bg-[#1C274C]/5 transition w-full sm:w-auto">
+          <Link
+            href="/technology"
+            className="px-6 py-3 border border-[#1C274C]/40 rounded-[2px] text-sm font-medium text-[#010101] hover:bg-[#1C274C]/5 transition w-full sm:w-auto inline-flex items-center justify-center gap-2"
+          >
             The technology that powers Columbus Pro
-          </button>
+            <ArrowUp size={20} strokeWidth={2} />
+          </Link>
 
-          <button className="px-6 py-3 border border-[#1C274C]/40 rounded-lg text-sm font-medium text-[#1C274C] hover:bg-[#1C274C]/5 transition w-full sm:w-auto">
+          <Link
+            href="/platform"
+            className="px-6 py-3 border border-[#1C274C]/40 rounded-[2px] text-sm font-medium text-[#010101] hover:bg-[#1C274C]/5 transition w-full sm:w-auto inline-flex items-center justify-center gap-2"
+          >
             Learn more about Columbus Pro platform
-          </button>
+            <ArrowUp size={20} strokeWidth={2} />
+          </Link>
 
         </div>
 

@@ -4,16 +4,16 @@ import Image from "next/image";
 
 export const Vision = () => {
   return (
-    <section className="bg-[#F9F9F9] py-20 md:py-28 lg:py-36">
+    <section className="bg-[#FEFEFE] py-20 md:py-28 lg:py-36">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
 
         {/* TITLE */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#1C274C] leading-tight text-center mb-12 md:mb-16">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight text-left mb-12 md:mb-16 -mt-20 bg-gradient-to-b from-[#0A1344] to-[#838383] bg-clip-text text-transparent">
           Our vision of a new kind of AI
         </h2>
 
         {/* GRID */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 auto-rows-[120px] sm:auto-rows-[140px] lg:auto-rows-[160px]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-[5px] auto-rows-[120px] sm:auto-rows-[140px] lg:auto-rows-[160px] -mt-[30px]">
 
           {/* ROW 1 */}
           <Tile src="/image1.png" />
@@ -59,15 +59,15 @@ export const Vision = () => {
         </div>
 
         {/* BOTTOM ROW */}
-        <div className="mt-12 md:mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="mt-[28px] md:mt-[44px] flex flex-col md:flex-row items-start justify-between gap-6">
 
-          <p className="text-sm md:text-base text-[#1C274C]/70 max-w-2xl leading-relaxed">
+          <p className="text-sm md:text-base text-[#010101] max-w-2xl leading-relaxed">
             ColumbusPro-1 processes satellite imagery, terrain data, human activity,
             and temporal patterns to generate actionable intelligence across real estate,
             research, and consumer domains.
           </p>
 
-          <button className="border border-[#1C274C] px-6 md:px-8 py-3 text-sm font-medium tracking-wide rounded-md hover:bg-[#1C274C] hover:text-white transition whitespace-nowrap">
+          <button className="border border-[#1C274C] px-[69px] md:px-[77px] py-[14.5px] text-base font-semibold tracking-wide rounded-md hover:bg-[#1C274C] hover:text-white transition whitespace-nowrap">
             [ See what we’re building ]
           </button>
 
@@ -79,7 +79,7 @@ export const Vision = () => {
 
 const Tile = ({ src }: { src: string }) => {
   return (
-    <div className="relative w-full h-full rounded-2xl overflow-hidden">
+    <div className="relative w-full h-full overflow-hidden">
       <Image
         src={src}
         alt=""
@@ -101,12 +101,12 @@ const TextTile = ({
 }) => {
   return (
     <div
-      className={`bg-white rounded-2xl flex flex-col justify-center items-center text-center px-6 sm:px-8 ${className}`}
+      className={`bg-white flex flex-col justify-center items-center text-center px-6 sm:px-8 ${className}`}
     >
-      <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-[#1C274C] leading-snug">
-        {title}
+      <h3 className="text-xl sm:text-2xl md:text-3xl font-medium text-[#010101] leading-snug">
+      {title}
       </h3>
-      <p className="text-xs sm:text-sm text-[#1C274C]/70 mt-2">
+      <p className="text-lg sm:text-xl md:text-2xl font-medium text-[#010101] mt-2">
         {subtitle}
       </p>
     </div>
