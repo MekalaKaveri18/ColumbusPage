@@ -157,3 +157,72 @@ video {
     animation: none;
   }
 }
+
+@keyframes trusted-marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.trusted-marquee {
+  display: flex;
+  width: max-content;
+  animation: trusted-marquee-scroll 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trusted-marquee {
+    animation: none;
+  }
+}
+
+/* Recommendations section: infinite horizontal marquee */
+@keyframes recommendations-marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.recommendations-marquee {
+  display: flex;
+  width: max-content;
+  animation: recommendations-marquee-scroll 60s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recommendations-marquee {
+    animation: none;
+  }
+}
+
+/* Bee-like hover wobble for Favorites section emojis */
+@keyframes bee-hover {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(2px, -2px) rotate(3deg); }
+  50% { transform: translate(-2px, 1px) rotate(-3deg); }
+  75% { transform: translate(1px, 2px) rotate(2deg); }
+}
+
+.hover-bee:hover {
+  animation: bee-hover 0.35s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-bee:hover {
+    animation: none;
+  }
+}
+
+/* Section B (Products Hero): floating icons gentle bob */
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.hero-float {
+  animation: hero-float 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-float {
+    animation: none;
+  }
+}

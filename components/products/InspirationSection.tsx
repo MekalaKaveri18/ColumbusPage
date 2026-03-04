@@ -69,11 +69,36 @@ import Image from "next/image";
 
 export default function InspirationStrip() {
   return (
-    <section className="w-full overflow-hidden">
-      <div className="relative w-full aspect-[1731/752]">
+    <section className="w-full overflow-hidden pb-[300px]">
+      <div className="relative w-full aspect-[1730/500]">
 
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F2E9D8] via-[#D6EEF2] to-[#B9E5F3]" />
+        {/* Rectangle 2541: main gradient (270deg = right to left) */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(270deg, rgba(0, 255, 38, 0.2) 0%, rgba(33, 140, 206, 0.4) 51.15%, rgba(199, 32, 32, 0.3) 100%)",
+          }}
+        />
+
+        {/* Rectangle 2628: top edge fade to white */}
+        <div
+          className="absolute left-0 right-0 top-0 pointer-events-none"
+          style={{
+            height: "40.45%",
+            maxHeight: 144,
+            background: "linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)",
+          }}
+        />
+
+        {/* Rectangle 2629: bottom edge fade to white (flipped) */}
+        <div
+          className="absolute left-0 right-0 bottom-0 pointer-events-none"
+          style={{
+            height: "43%",
+            maxHeight: 153,
+            background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)",
+          }}
+        />
 
         {/* Palm (Left) */}
         <Image
