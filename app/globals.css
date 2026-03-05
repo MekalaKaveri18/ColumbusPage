@@ -12,6 +12,11 @@ body {
   min-height: 100%;
 }
 
+/* Smooth scroll: fallback when Lenis is not active (e.g. before hydration, anchor links) */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Theme variables */
 :root {
   --background: #F9F9F9;
@@ -82,6 +87,65 @@ video {
 
 .bullet-halo {
   animation: sonar-pulse 2s ease-out infinite;
+}
+
+/* Sonar on light background — gray expanding ring */
+@keyframes sonar-pulse-dark {
+  0% {
+    box-shadow: 0 0 0 0 rgba(85, 85, 85, 0.5), 0 0 0 0 rgba(85, 85, 85, 0.25);
+  }
+  40% {
+    box-shadow: 0 0 0 8px rgba(85, 85, 85, 0.15), 0 0 0 4px rgba(85, 85, 85, 0.3);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(85, 85, 85, 0), 0 0 0 10px rgba(85, 85, 85, 0.08);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(85, 85, 85, 0), 0 0 0 16px rgba(85, 85, 85, 0);
+  }
+}
+
+.bullet-halo-dark {
+  animation: sonar-pulse-dark 2s ease-out infinite;
+}
+
+/* Section D case intro: when one card hovered, dim others */
+.case-intro-grid:has(.case-intro-card:hover) .case-intro-card:not(:hover) .case-intro-rest-overlay {
+  opacity: 1;
+}
+
+.case-intro-rest-overlay {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* Section D: arrow bounces on card hover */
+@keyframes case-intro-arrow-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.case-intro-card:hover .case-intro-arrow {
+  animation: case-intro-arrow-bounce 0.6s ease-in-out infinite;
+}
+
+/* Section E: slow smooth up-and-down arrow */
+@keyframes see-case-studies-arrow-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.see-case-studies-arrow {
+  animation: see-case-studies-arrow-float 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-intro-card:hover .case-intro-arrow {
+    animation: none;
+  }
+  .see-case-studies-arrow {
+    animation: none;
+  }
 }
 
 /* Slow sinusoidal hover for TravelPromo logos/emojis */

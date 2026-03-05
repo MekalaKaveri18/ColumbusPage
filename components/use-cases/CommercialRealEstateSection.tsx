@@ -15,7 +15,7 @@ const Pin = ({ top, left }: { top: string; left: string }) => (
 
 export function CommercialRealEstateSection() {
   return (
-    <section className="bg-[#F2F2F2] py-20 lg:py-[140px]">
+    <section className="bg-[#F9F9F9] pt-5 pb-20 lg:pb-[140px]">
       <div className="max-w-[1728px] mx-auto px-6 lg:px-[60px] grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 lg:gap-[80px]">
 
         {/* LEFT TEXT */}

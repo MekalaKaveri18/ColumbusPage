@@ -210,47 +210,136 @@
 "use client";
 
 import Image from "next/image";
+import { useRef, useEffect, useState } from "react";
+
+// 76px nav height + 20px gap = 96px from viewport top
+const STICK_TOP_PX = 96;
+const SECTION_F_ID = "residential-real-estate";
 
 export function RealEstateSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const cellRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const imageWrapRef = useRef<HTMLDivElement>(null);
+  const [stickStyle, setStickStyle] = useState<{ top: number; left: number; width: number } | null>(null);
+  const [spacerHeight, setSpacerHeight] = useState(0);
+
+  useEffect(() => {
+    const cell = cellRef.current;
+    const content = contentRef.current;
+    const imageWrap = imageWrapRef.current;
+    if (!cell || !content) return;
+
+    const update = () => {
+      // Use outer Section F container so "section bottom" is the real bottom of the block
+      const sectionEl = document.getElementById(SECTION_F_ID);
+      if (!sectionEl) return;
+
+      const sectionRect = sectionEl.getBoundingClientRect();
+      const cellRect = cell.getBoundingClientRect();
+      const contentH = content.offsetHeight;
+      const isLg = typeof window !== "undefined" && window.innerWidth >= 1024;
+      const viewportH = typeof window !== "undefined" ? window.innerHeight : 0;
+      const imageTop = imageWrap ? imageWrap.getBoundingClientRect().top : 0;
+
+      // Column bottom when stuck at top
+      const columnBottomWhenStuck = STICK_TOP_PX + contentH;
+
+      // In stick zone: section top has passed the nav line and section is still in view
+      const sectionTopPastStick = sectionRect.top <= STICK_TOP_PX;
+      const sectionStillInView = sectionRect.bottom > 0;
+      const isStuck = isLg && sectionTopPastStick && sectionStillInView;
+
+      if (!isStuck) {
+        setStickStyle(null);
+        setSpacerHeight(0);
+        return;
+      }
+
+      let top: number;
+      if (sectionRect.bottom > columnBottomWhenStuck) {
+        // Stick at top: column stays below nav until its bottom would hit section bottom
+        top = STICK_TOP_PX;
+      } else {
+        // Pin at bottom: column bottom aligned with section bottom (stop sticky, hold there)
+        top = sectionRect.bottom - contentH;
+        top = Math.max(0, top);
+        top = Math.min(top, viewportH - contentH);
+      }
+      // Don’t draw column above the right-column image
+      top = Math.max(imageTop, top);
+
+      setStickStyle({
+        top,
+        left: cellRect.left,
+        width: cellRect.width,
+      });
+      setSpacerHeight(contentH);
+    };
+
+    update();
+    const raf = () => {
+      update();
+      requestAnimationFrame(raf);
+    };
+    let rafId = requestAnimationFrame(raf);
+    const onScroll = () => update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", update);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
   return (
-    <section className="bg-[#F2F2F2] pt-20 lg:pt-[120px] pb-24 lg:pb-[140px]">
+    <section ref={sectionRef} className="bg-[#F9F9F9] pt-5 pb-24 lg:pb-[140px]">
 
-      {/* Top label */}
-      <div className="text-center text-[24px] md:text-[28px] lg:text-[32px] mb-12 lg:mb-[70px] text-[#6B6B6B]">
-        See the case studies ↓
-      </div>
+      <div className="max-w-[1728px] mx-auto grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 px-6 md:px-12 lg:px-[60px] items-start">
 
-      <div className="max-w-[1728px] mx-auto grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10 px-6 md:px-12 lg:px-[60px]">
+        {/* LEFT PANEL — sticky below nav when scrolling */}
+        <div ref={cellRef} className="lg:self-start pt-0">
+          {stickStyle != null && spacerHeight > 0 && (
+            <div style={{ height: spacerHeight }} aria-hidden />
+          )}
+          <div
+            ref={contentRef}
+            className={`${stickStyle ? "lg:fixed z-10" : ""} pt-0`}
+            style={
+              stickStyle
+                ? { top: stickStyle.top, left: stickStyle.left, width: stickStyle.width }
+                : undefined
+            }
+          >
+            <h2 className="m-0 p-0 text-[30px] md:text-[34px] lg:text-[38px] leading-[1.3] font-semibold">
+              Real Estate
+              <br />
+              Site Selection
+            </h2>
 
-        {/* LEFT PANEL */}
-        <div>
-          <h2 className="text-[30px] md:text-[34px] lg:text-[38px] leading-[1.3] font-semibold">
-            Real Estate
-            <br />
-            Site Selection
-          </h2>
+            <p className="mt-5 text-[16px] text-[#6B7280] leading-[1.6] m-0">
+              Enabling faster site-selection
+              <br />
+              for Residential and commercial
+              <br />
+              Real Estate customers, including:
+            </p>
 
-          <p className="mt-5 text-[16px] text-[#6B7280] leading-[1.6]">
-            Enabling faster site-selection
-            <br />
-            for Residential and commercial
-            <br />
-            Real Estate customers, including:
-          </p>
-
-          <ul className="mt-5 text-[#6B7280] text-[16px] leading-[1.9] space-y-1">
-            <li>Franchises</li>
-            <li>Consultants</li>
-            <li>CRE</li>
-            <li>Residential Developers</li>
-            <li>Wholesale brokers</li>
-          </ul>
+            <ul className="mt-5 text-[#6B7280] text-[16px] leading-[1.9] space-y-1 list-none p-0 m-0">
+              <li>Franchises</li>
+              <li>Consultants</li>
+              <li>CRE</li>
+              <li>Residential Developers</li>
+              <li>Wholesale brokers</li>
+            </ul>
+          </div>
         </div>
 
         {/* MAP AREA */}
         <div>
-
-          <div className="relative w-full h-[420px] md:h-[520px] lg:h-[674px] rounded-[14px] overflow-hidden">
+          <div ref={imageWrapRef} className="relative w-full h-[420px] md:h-[520px] lg:h-[674px] rounded-[14px] overflow-hidden">
 
             <Image
               src="/use-cases/real.png"

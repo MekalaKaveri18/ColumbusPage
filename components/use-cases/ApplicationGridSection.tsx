@@ -4,7 +4,7 @@ export function ApplicationGridSection() {
     <section
       style={{
         background: "#F9F9F9",
-        padding: "160px 20px",
+        padding: "60px 20px",
         textAlign: "center",
       }}
     >
@@ -13,6 +13,7 @@ export function ApplicationGridSection() {
           fontSize: "40px",
           fontWeight: 500,
           margin: 0,
+          color: "#505050",
         }}
       >
         The applications of this technology are versatile and wide
@@ -23,9 +24,17 @@ export function ApplicationGridSection() {
           marginTop: "30px",
           fontSize: "24px",
           color: "#555",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "10px",
         }}
       >
-        • See the use-cases we’ve explored so far
+        <span
+          className="bullet-halo-dark inline-block h-2 w-2 shrink-0 rounded-full bg-[#555]"
+          aria-hidden
+        />
+        See the use-cases we've explored so far
       </p>
     </section>
   );
