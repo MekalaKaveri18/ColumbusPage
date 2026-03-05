@@ -24,13 +24,14 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
 
     const instance = new Lenis({
       smoothWheel: true,
-      wheelMultiplier: 0.55,
-      touchMultiplier: 0.55,
-      lerp: 0.08,
+      wheelMultiplier: 0.45,
+      touchMultiplier: 0.45,
+      lerp: 0.06,
       syncTouch: true,
     });
     lenisRef.current = instance;
     setLenis(instance);
+    document.documentElement.classList.add("lenis");
 
     let rafId = 0;
     const raf = (time: number) => {
@@ -46,6 +47,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
       window.removeEventListener("resize", onResize);
       window.cancelAnimationFrame(rafId);
       instance.destroy();
+      document.documentElement.classList.remove("lenis");
       lenisRef.current = null;
       setLenis(null);
     };

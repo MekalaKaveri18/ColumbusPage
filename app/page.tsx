@@ -58,8 +58,6 @@ import { Industries } from "@/components/home/Industries";
 import { PartnerStrip } from "@/components/home/PartnerStrip";
 import { TravelPromo } from "@/components/home/TravelPromo";
 import { UniqueSpotsSection } from "@/components/home/UniqueSpotsSection";
-import { LenisProvider } from "@/components/home/LenisContext";
-
 const sectionColors = [
   "bg-slate-100",      // a Navbar
   "bg-blue-50",       // b Hero
@@ -92,8 +90,7 @@ function SectionLabel({ letter }: { letter: string }) {
 
 export default function Home() {
   return (
-    <LenisProvider>
-      <main className="min-h-screen">
+    <main className="min-h-screen">
         <section className={`relative ${sectionColors[0]}`}>
         <SectionLabel letter="a" />
         <Navbar />
@@ -159,6 +156,5 @@ export default function Home() {
         <Footer />
       </section>
     </main>
-    </LenisProvider>
   );
 }

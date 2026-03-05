@@ -254,16 +254,58 @@
 "use client";
 
 import Image from "next/image";
+import { useRef, useEffect, useState } from "react";
+
+// When section top reaches this Y (nav + gap), title has moved down by TITLE_DROP_PX
+const NAV_THRESHOLD_PX = 96;
+const TITLE_DROP_PX = 56;
+const DROP_START_TOP_PX = 280;
+
+const clamp = (min: number, max: number, value: number) =>
+  Math.min(max, Math.max(min, value));
 
 export function GenerativeGeodataSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [titleOffsetY, setTitleOffsetY] = useState(0);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const update = () => {
+      const rect = section.getBoundingClientRect();
+      const travel = DROP_START_TOP_PX - NAV_THRESHOLD_PX;
+      const progress = clamp(
+        0,
+        1,
+        (DROP_START_TOP_PX - rect.top) / travel
+      );
+      setTitleOffsetY(progress * TITLE_DROP_PX);
+    };
+
+    const raf = () => {
+      update();
+      requestAnimationFrame(raf);
+    };
+    const rafId = requestAnimationFrame(raf);
+    window.addEventListener("resize", update);
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
   return (
-    <section className="bg-[#F2F2F2] py-20 lg:py-[140px]">
+    <section ref={sectionRef} className="bg-[#F9F9F9] pt-5 pb-20 lg:pb-[140px]">
 
       <div className="max-w-[1728px] mx-auto px-6 md:px-12 lg:px-[60px] grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10">
 
-        {/* LEFT TEXT */}
+        {/* LEFT TEXT — title moves down as section reaches nav */}
         <div>
-          <h2 className="text-[30px] md:text-[34px] lg:text-[38px] leading-[1.2]">
+          <h2
+            className="text-[30px] md:text-[34px] lg:text-[38px] leading-[1.2] transition-none"
+            style={{ transform: `translateY(${titleOffsetY}px)` }}
+          >
             Generative <br />
             Geodata
           </h2>

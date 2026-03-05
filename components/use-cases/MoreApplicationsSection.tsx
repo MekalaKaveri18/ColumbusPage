@@ -262,9 +262,9 @@ export function MoreApplicationsSection() {
   };
 
   return (
-    <section className="w-full max-w-[1728px] mx-auto px-6 md:px-12 lg:px-[120px] py-20 lg:py-[140px]">
+    <section className="w-full max-w-[1728px] mx-auto px-6 md:px-12 lg:px-[120px] pt-5 pb-20 lg:pb-[140px]">
 
-      <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-16 lg:gap-20">
+      <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-16 lg:gap-20">
 
         {/* LEFT SIDE */}
         <div>
@@ -279,27 +279,28 @@ export function MoreApplicationsSection() {
             people in the industry. Talk to us.
           </p>
 
-          {/* CHAT BUTTON */}
-          <div className="relative w-[186px] h-[60px] mt-7">
-
-            <div
-              className="absolute inset-0 rounded-full blur-[18px] opacity-90"
+          {/* CHAT BUTTON — glass pill */}
+          <div className="mt-7">
+            <button
+              className="flex flex-row justify-center items-center w-[186px] h-[51px] py-3 px-6 gap-2 rounded-[45.5px] text-white cursor-pointer"
               style={{
-                background:
-                  "radial-gradient(circle at 20% 70%, #FFD84D, transparent 60%), radial-gradient(circle at 70% 20%, #6EE7B7, transparent 60%), radial-gradient(circle at 80% 80%, #F472B6, transparent 60%)",
+                background: "rgba(255, 255, 255, 0.1)",
+                boxShadow: "0px 0px 1px rgba(0, 0, 0, 0.2)",
+                fontFamily: "'SF Pro', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif",
+                fontWeight: 590,
+                fontSize: "16px",
+                lineHeight: "140%",
+                letterSpacing: "-0.02em",
               }}
-            />
-
-            <button className="relative w-[186px] h-[51px] rounded-[45px] border border-white/60 bg-white/15 backdrop-blur-md text-white text-[14px]">
+            >
               Chat with us
             </button>
-
           </div>
         </div>
 
         {/* RIGHT SIDE */}
         <div>
-          <div className="text-[12px] tracking-[1px] mb-6 text-gray-500 uppercase">
+          <div className="text-[16px] tracking-[1px] mb-6 uppercase font-semibold" style={{ color: "#0A1344" }}>
             ↓ Application Areas
           </div>
 
@@ -311,7 +312,7 @@ export function MoreApplicationsSection() {
 
                 <div
                   onClick={() => toggle(i)}
-                  className="grid grid-cols-[40px_1fr_30px] md:grid-cols-[60px_1fr_40px] items-center text-[18px] md:text-[20px] cursor-pointer"
+                  className="grid grid-cols-[40px_1fr_30px] md:grid-cols-[60px_1fr_40px] items-center text-[22px] md:text-[28px] font-semibold cursor-pointer"
                 >
                   <span className="text-gray-400">
                     {(i + 1).toString().padStart(2, "0")}.
@@ -319,16 +320,28 @@ export function MoreApplicationsSection() {
 
                   <span>{item.title}</span>
 
-                  <button className="text-[22px]">
+                  <button
+                    type="button"
+                    className="text-[26px] md:text-[30px]"
+                    aria-expanded={open}
+                  >
                     {open ? "−" : "+"}
                   </button>
                 </div>
 
-                {open && (
-                  <div className="mt-4 pl-[40px] md:pl-[60px] text-gray-500 text-[16px] leading-[1.6] max-w-[700px]">
-                    {item.content}
+                <div
+                  className="grid"
+                  style={{
+                    gridTemplateRows: open ? "1fr" : "0fr",
+                    transition: "grid-template-rows 0.2s ease-out",
+                  }}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    <div className="mt-4 pl-[40px] md:pl-[60px] text-gray-500 text-[20px] leading-[1.6] max-w-[800px] font-medium">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

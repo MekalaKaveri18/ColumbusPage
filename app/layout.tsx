@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { Cormorant_Garamond, Cambo } from "next/font/google";
+import { LenisProvider } from "@/components/home/LenisContext";
 
 export const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -35,7 +36,7 @@ export default function RootLayout({
 
       {/* Keep global styles simple - match GFrontEndWork: no Navbar/Footer here, no font on body */}
       <body className="antialiased bg-[#F9F9F9] min-h-screen">
-        {children}
+        <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );
