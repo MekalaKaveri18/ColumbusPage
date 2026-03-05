@@ -1,26 +1,26 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function FinalCTASection() {
   const FRAME_WIDTH = 1728;
   const HERO_HEIGHT = 1092;
-  const TOTAL_HEIGHT = 1500;
 
   return (
-    <section className="bg-white flex justify-center overflow-hidden">
+    <section className="bg-white flex flex-col items-center overflow-hidden">
 
-      {/* Responsive Scaling Wrapper */}
+      {/* Responsive Scaling Wrapper — hero only */}
       <div
         className="origin-top"
         style={{
           width: FRAME_WIDTH,
-          height: TOTAL_HEIGHT,
+          height: HERO_HEIGHT,
           transform: "scale(min(1, 100vw / 1728))",
           transformOrigin: "top center",
         }}
       >
-        <div className="relative w-[1728px] h-[1500px]">
+        <div className="relative w-[1728px] h-[1092px]">
 
           {/* ================= HERO IMAGE ================= */}
           <div
@@ -28,34 +28,46 @@ export default function FinalCTASection() {
             style={{ width: FRAME_WIDTH, height: HERO_HEIGHT }}
           >
             <Image
-              src="/how/city.jpg"
+              src="/ConsumerPageCity.png"
               alt="City"
               fill
               className="object-cover"
               priority
             />
 
-            {/* LEFT DARK HALF */}
+            {/* Rectangle 3299: left overlay gradient */}
             <div
-              className="absolute top-0 left-0"
+              className="absolute left-0 top-0"
               style={{
-                width: FRAME_WIDTH / 2,
-                height: HERO_HEIGHT,
-                background: "rgba(0,0,0,0.55)",
+                width: 1018,
+                height: 1091,
+                background: "linear-gradient(261.31deg, rgba(0, 0, 0, 0) 5.79%, rgba(0, 0, 0, 0.6) 56.37%)",
               }}
             />
 
             {/* LEFT CONTENT */}
             <div
-              className="absolute text-white"
+              className="absolute text-white z-10"
               style={{
                 left: 160,
                 top: 280,
                 width: 420,
               }}
             >
-              <p className="text-[18px] opacity-80 mb-8">
-                MapsGPT is browser based
+              <p className="text-2xl font-bold text-white mb-8">
+                <span
+                  className="inline-block"
+                  style={{
+                    background: "linear-gradient(to right, #8DF7FF 0%, #FFFFFF 84%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  MapsGPT
+                </span>
+                {" "}
+                is browser based
               </p>
 
               <h2 className="text-[64px] font-semibold leading-[1.15] mb-8">
@@ -64,14 +76,15 @@ export default function FinalCTASection() {
                 there for you.
               </h2>
 
-              <p className="text-[20px] opacity-80 mb-10 leading-[140%]">
+              <p className="text-[20px] text-white mb-10 leading-[140%]">
                 Access your local AI travel pal
                 <br />
                 on any browser.
               </p>
 
-              <button
-                className="backdrop-blur-md"
+              <Link
+                href="/maps-gpt"
+                className="inline-block backdrop-blur-md no-underline text-white hover:opacity-90 transition-opacity cursor-pointer"
                 style={{
                   padding: "18px 36px",
                   borderRadius: 50,
@@ -81,7 +94,7 @@ export default function FinalCTASection() {
                 }}
               >
                 Try it out! It’s completely free →
-              </button>
+              </Link>
             </div>
 
             {/* PHONE */}
@@ -103,7 +116,7 @@ export default function FinalCTASection() {
 
             {/* FLOATING HEARTS */}
             <Image
-              src="/how/heart1.png"
+              src="/how/heart.png"
               alt=""
               width={90}
               height={90}
@@ -115,7 +128,7 @@ export default function FinalCTASection() {
             />
 
             <Image
-              src="/how/heart2.png"
+              src="/how/heart.png"
               alt=""
               width={80}
               height={80}
@@ -127,25 +140,21 @@ export default function FinalCTASection() {
             />
           </div>
 
-          {/* ================= BOTTOM FEEDBACK ================= */}
-          <div
-            className="absolute text-center"
-            style={{
-              top: HERO_HEIGHT + 120,
-              left: FRAME_WIDTH / 2,
-              transform: "translateX(-50%)",
-              width: 600,
-            }}
-          >
-            <p className="text-[#4E4E4E] text-[20px] leading-[150%] mb-10">
+        </div>
+      </div>
+
+      {/* ================= CTA: centered in viewport ================= */}
+      <div className="relative z-10 w-full flex flex-col items-center justify-center text-center py-16 px-4">
+            <p className="text-[#4E4E4E] text-[20px] leading-[150%] mb-10 max-w-[600px] font-semibold">
               MapsGPT is updated regularly.
               <br />
               We’d love to hear your thoughts.
             </p>
 
-            <div className="flex gap-8 justify-center">
-              <button
-                className="border border-[#CFCFCF]"
+            <div className="flex flex-wrap gap-8 justify-center">
+              <Link
+                href="/feedback"
+                className="inline-flex items-center justify-center border border-[#CFCFCF] bg-white hover:bg-gray-50 transition no-underline text-[#2C2C2C] cursor-pointer relative z-10"
                 style={{
                   padding: "14px 28px",
                   borderRadius: 8,
@@ -153,10 +162,11 @@ export default function FinalCTASection() {
                 }}
               >
                 Request a feature
-              </button>
+              </Link>
 
-              <button
-                className="border border-[#CFCFCF]"
+              <Link
+                href="/feedback"
+                className="inline-flex items-center justify-center border border-[#CFCFCF] bg-white hover:bg-gray-50 transition no-underline text-[#2C2C2C] cursor-pointer relative z-10"
                 style={{
                   padding: "14px 28px",
                   borderRadius: 8,
@@ -164,11 +174,8 @@ export default function FinalCTASection() {
                 }}
               >
                 Report a bug
-              </button>
+              </Link>
             </div>
-          </div>
-
-        </div>
       </div>
     </section>
   );

@@ -213,14 +213,13 @@ export const Navbar = () => {
 
 
                             <div
-                            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
-
+                            className="mx-auto w-full max-w-[1200px] px-4 py-12 lg:px-6"
                             style={{ transitionDelay: isMenuOpen ? "150ms" : "0ms" }}
                             >
                             <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-                             {/* Column 1: Description */}
+                             {/* Column 1: Description — left edge aligned with logo */}
                             <div
-                            className={`md:col-span-5 space-y-8 transition-opacity duration-500 ${
+                            className={`-translate-x-2 md:-translate-x-[70px] lg:-translate-x-[110px] xl:-translate-x-[140px] md:col-span-5 space-y-8 transition-opacity duration-500 ${
                             isMenuOpen ? "opacity-100" : "opacity-0"
                             }`}
 

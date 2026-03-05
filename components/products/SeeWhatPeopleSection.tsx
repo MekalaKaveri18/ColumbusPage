@@ -101,100 +101,77 @@
 
 import Image from "next/image";
 
-type CardType = {
-  img: string;
-  text: string;
-};
 
-const cards: CardType[] = [
-  { img: "/see/1.png", text: "Newest chic spots for a coffee in Madrid, with comfy seats" },
-  { img: "/see/2.png", text: "Cozy stays with aesthetic interiors and warm lighting" },
-  { img: "/see/3.png", text: "Luxury dining experience overlooking the skyline" },
-  { img: "/see/4.png", text: "Beachfront cafes with tropical vibes and sea breeze" },
-  { img: "/see/5.png", text: "Cool places to have a picnic with co-founders" },
-  { img: "/see/6.png", text: "Underground nightlife with immersive music scenes" },
-  { img: "/see/7.png", text: "Minimalist bathroom interiors with warm tones" },
-  { img: "/see/8.png", text: "Hidden architectural gems in historic districts" },
-  { img: "/see/9.png", text: "Places to take a girl on a first date (she’s allergic to peas)" },
-  { img: "/see/10.png", text: "Dog parks perfect for weekend relaxation" },
-  { img: "/see/11.png", text: "Sunset beaches with minimal crowds and calm waters" },
-  { img: "/see/12.png", text: "Off-grid destinations for adventurous travelers" },
-  { img: "/see/13.png", text: "Urban cafes filled with plants and natural light" },
-  { img: "/see/14.png", text: "Warm, modern interiors with cozy atmosphere" },
-  { img: "/see/15.png", text: "Romantic dining spots for special occasions" },
-  { img: "/see/16.png", text: "Unique travel destinations that feel surreal" },
-];
-
-// EXACT 2-3-3-3-3-2 distribution
-const columns: CardType[][] = [
-  cards.slice(0, 2),
-  cards.slice(2, 5),
-  cards.slice(5, 8),
-  cards.slice(8, 11),
-  cards.slice(11, 14),
-  cards.slice(14, 16),
+const QUESTION_IMAGES = Array.from(
+  { length: 11 },
+  (_, i) => `/QuestionsMapsGPT/Question${i + 1}.png`
+);
+const imageColumns: string[][] = [
+  [QUESTION_IMAGES[0], QUESTION_IMAGES[1]],
+  [QUESTION_IMAGES[2], QUESTION_IMAGES[3], QUESTION_IMAGES[4]],
+  [QUESTION_IMAGES[5], QUESTION_IMAGES[6], QUESTION_IMAGES[7]],
+  [QUESTION_IMAGES[8], QUESTION_IMAGES[9], QUESTION_IMAGES[10]],
+  [QUESTION_IMAGES[0], QUESTION_IMAGES[1], QUESTION_IMAGES[2]],
+  [QUESTION_IMAGES[3], QUESTION_IMAGES[4]],
 ];
 
 export default function SeeWhatPeopleSection() {
   return (
-    <section className="bg-[#F6F7F8] py-20 px-4">
-      <div className="max-w-[1730px] mx-auto">
+    <section className="bg-[#F6F7F8] pt-20 px-4 pb-[380px] relative">
+      <div className="max-w-[2000px] mx-auto">
 
         {/* Title */}
         <h2 className="text-center text-[clamp(28px,4vw,56px)] font-semibold text-[#0E2F44] mb-16">
           See what people are asking
         </h2>
 
-        {/* 6 Column Layout */}
+        {/* 6 Column Layout — images only */}
         <div
           className="
-            grid 
-            grid-cols-1 
-            sm:grid-cols-2 
-            md:grid-cols-3 
-            lg:grid-cols-4 
-            xl:grid-cols-6 
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            md:grid-cols-3
+            lg:grid-cols-4
+            xl:grid-cols-6
             gap-8
           "
         >
-          {columns.map((column, colIndex) => (
+          {imageColumns.map((column, colIndex) => (
             <div key={colIndex} className="flex flex-col gap-8">
-              {column.map((card, i) => (
-                <Card key={i} img={card.img} text={card.text} />
+              {column.map((src, i) => (
+                <ImageCard key={`${colIndex}-${i}`} src={src} />
               ))}
             </div>
           ))}
         </div>
 
       </div>
+
+      {/* Bottom white-to-transparent vertical gradient */}
+      <div
+        className="absolute left-0 right-0 bottom-0 pointer-events-none"
+        style={{
+          height: "min(240px, 25vh)",
+          background: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)",
+        }}
+        aria-hidden
+      />
     </section>
   );
 }
 
-function Card({ img, text }: CardType) {
+function ImageCard({ src }: { src: string }) {
   return (
-    <div className="bg-white rounded-[24px] shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden transition">
-
-      {/* Image (unchanged size) */}
+    <div className="rounded-[24px] shadow-[0_12px_30px_rgba(0,0,0,0.06)] overflow-hidden bg-white">
       <div className="relative w-full aspect-[4/3]">
         <Image
-          src={img}
+          src={src}
           alt=""
           fill
           className="object-cover"
         />
       </div>
-
-      {/* Text Bubble */}
-      <div className="p-4 flex gap-3">
-        <div className="w-8 h-8 rounded-full bg-gray-300 shrink-0" />
-
-        {/* Prevent text from stretching card height too much */}
-        <div className="bg-gray-100 text-xs p-3 rounded-2xl leading-relaxed line-clamp-3">
-          {text}
-        </div>
-      </div>
-
     </div>
   );
 }
