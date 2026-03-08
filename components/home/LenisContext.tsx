@@ -24,9 +24,9 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
 
     const instance = new Lenis({
       smoothWheel: true,
-      wheelMultiplier: 0.45,
-      touchMultiplier: 0.45,
-      lerp: 0.06,
+      wheelMultiplier: 0.7,
+      touchMultiplier: 0.7,
+      lerp: 0.12,
       syncTouch: true,
     });
     lenisRef.current = instance;
